@@ -1,0 +1,85 @@
+*{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+body{
+    background-color: #c9d1e9;
+}
+
+.navbar{
+    background-color: #6b5dff !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    place-content: space-between !important;
+}
+.navbar-expand-lg .navbar-collapse {
+    place-content: space-between !important;
+}
+
+img.logo{
+width: 15vw;
+padding: 0 !important;
+margin: 0 !important;
+
+}
+
+img.profile{
+    width: 3vw;
+    border-radius: 50%;
+
+    }
+
+input.form-control{
+    background-color: #adbae0 !important;
+    border: #6b5dff;
+    width: 20vw !important;
+
+}
+
+#navbarSupportedContent{
+    justify-content: center !important;
+}
+
+ul{
+    list-style: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: -130px !important;
+    margin-top: var(--bs-dropdown-spacer);
+}
+
+.sidebar{
+    background-color: #6b5dff !important;
+    min-height: 630px;
+}
+
+img.i{
+width: 200px;
+opacity: 0.3;
+color: rgb(255, 255, 255);
+fill: aquamarine;
+
+}
+input#indicacao {
+    margin-top: 50px !important;
+    width: 500px !important;
+    height: 100px !important;
+}
+
+div.linha{
+margin: 0 !important;
+gap: 6rem !important;
+}
+
+.flutuante-button {
+    width: 120px;
+    height: 80px;
+    font-size: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: none !important;
+    color: rgb(92, 92, 232);
+}

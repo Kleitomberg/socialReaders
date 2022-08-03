@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Social Readers{% endblock %}
+{% block body %}
+
+
+<div class="row linha">
+
+    <div class="col-md-3 sidebar mt-3 p-2 ">
+
+        <div class="">
+            <img class="img-fluid profile" src="assets/images/profile.png" alt="logo"></a>
+            <span class="text-light fw-semibold"> Kleitomberg</span>
+        </div>
+
+        <div class="menu mt-3 mb-5">
+
+            <ul>
+                <li class="d-flex gap-2 menu-item text-light">
+                    <i class="fa-solid fa-user "></i>Perfil
+                </li>
+
+                <li class="d-flex gap-2 menu-item text-light">
+                    <i class="fa-solid fa-book"></i> Meu Livros
+                </li>
+
+                <li class="d-flex gap-2 menu-item text-light">
+
+                    <i class="fa-solid fa-user-group"></i> Amigos
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <img class="img-fluid i" src="assets/images/icon.png" alt="">
+        </div>
+    </div>
+
+    <div class="col-md-4 mt-3 content">
+
+        <form action="">
+
+            <input class="form-control" type="text" name="" id="indicacao" placeholder="Indique um livro">
+
+            <button class="btn btn-primary text-end mt-2">Postar</button>
+        </form>
+
+
+        <div class="posts mt-5">
+
+            <div class="post">
+
+                <div class="autor">
+                    foto | nome
+                </div>
+
+                <div class="publicacao card p-3 ">
+                    <div> Hoje li o livro jardim das palvras, gostei super, ele trata sobre bla bla bla, uma leitura que
+                        super recomendo </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="col-md-auto">
+        <a href="" class="btn flutuante-button"> <i class="fa-solid fa-comment-dots"></i></a>
+    </div>
+
+
+</div>
+
+{% endblock %}
