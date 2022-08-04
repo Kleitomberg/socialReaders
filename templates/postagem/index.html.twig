@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Postagem index{% endblock %}
+
+{% block body %}
+    <h1>Postagem index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Conteudo</th>
+                <th>Criado_em</th>
+                <th>Atualizado_em</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for postagem in postagems %}
+            <tr>
+                <td>{{ postagem.id }}</td>
+                <td>{{ postagem.conteudo }}</td>
+                <td>{{ postagem.criadoEm ? postagem.criadoEm|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ postagem.atualizadoEm ? postagem.atualizadoEm|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_postagem_show', {'id': postagem.id}) }}">show</a>
+                    <a href="{{ path('app_postagem_edit', {'id': postagem.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_postagem_new') }}">Create new</a>
+{% endblock %}
