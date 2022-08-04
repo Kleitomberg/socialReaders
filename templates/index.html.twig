@@ -8,14 +8,14 @@
 
     <div class="col-md-3 sidebar mt-3 p-2 ">
 
-        <div class="">
+        <div class="info-user-bar">
             <img class="img-fluid profile" src="assets/images/profile.png" alt="logo"></a>
             <span class="text-light fw-semibold"> Kleitomberg</span>
         </div>
 
         <div class="menu mt-3 mb-5">
 
-            <ul>
+            <ul class="lista-menu">
                 <li class="d-flex gap-2 menu-item text-light">
                     <i class="fa-solid fa-user "></i>Perfil
                 </li>
@@ -50,10 +50,57 @@
 
         <div class="posts mt-5">
 
+            <!-- posts-->
+            <div class="post mb-4">
+
+
+
+                <div class="autor mb-2  ">
+                    <div class="info-user-post">
+                        <img class="img-fluid profile-post" src="assets/images/profile.png" alt="logo"></a>
+                        <span class="text-dark fw-semibold"> Kleitomberg</span>
+
+                    </div>
+                </div>
+
+                <div class="publicacao card p-3 ">
+                    <div> Hoje li o livro jardim das palvras, gostei super, ele trata sobre bla bla bla, uma leitura que
+                        super recomendo </div>
+                </div>
+
+            </div>
+
+            <!-- posts-->
+            <div class="post mb-4">
+
+
+
+                <div class="autor mb-2  ">
+                    <div class="info-user-post">
+                        <img class="img-fluid profile-post" src="assets/images/profile.png" alt="logo"></a>
+                        <span class="text-dark fw-semibold"> Kleitomberg</span>
+
+                    </div>
+                </div>
+
+                <div class="publicacao card p-3 ">
+                    <div> Hoje li o livro jardim das palvras, gostei super, ele trata sobre bla bla bla, uma leitura que
+                        super recomendo </div>
+                </div>
+
+            </div>
+
+            <!-- posts-->
             <div class="post">
 
-                <div class="autor">
-                    foto | nome
+
+
+                <div class="autor mb-2  ">
+                    <div class="info-user-post">
+                        <img class="img-fluid profile-post" src="assets/images/profile.png" alt="logo"></a>
+                        <span class="text-dark fw-semibold"> Kleitomberg</span>
+
+                    </div>
                 </div>
 
                 <div class="publicacao card p-3 ">
@@ -69,7 +116,27 @@
     </div>
 
     <div class="col-md-auto">
-        <a href="" class="btn flutuante-button"> <i class="fa-solid fa-comment-dots"></i></a>
+        <a href="" class="btn flutuante-button" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i
+                class="fa-solid fa-comment-dots"></i></a>
+
+
+        <!-- Modal -->
+        <div class="modal hide" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Chats </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 
