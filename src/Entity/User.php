@@ -75,6 +75,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @see PasswordAuthenticatedUserInterface
+     * @return string the hashed password for this user
      */
     public function getPassword(): string
     {

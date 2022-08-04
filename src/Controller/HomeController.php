@@ -20,8 +20,11 @@ class HomeController extends AbstractController{
             array(),
             array('criado_em' => 'DESC')
           );
+
+          $user = $this->getUser();
         return $this->render("index.html.twig",[
-            "postagens"=>$postagens
+            "postagens"=>$postagens,
+            "usuario"=>$user
 
         ]);
     }
