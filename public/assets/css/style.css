@@ -41,6 +41,10 @@ input.form-control{
     border: #6b5dff;
     width: 20vw !important;
 
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+
+
 }
 
 #navbarSupportedContent{
@@ -181,3 +185,59 @@ button.postar:hover{
     color: #6b5dff !important;
 }
 
+body#corpo1{
+
+    background-image: url("../images/bg.png");
+    background-size: cover;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: currentcolor;
+    background-blend-mode: screen;
+}
+
+main#main{
+    width: 100vw;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-color: #6b5dffa9 !important;
+
+    object-fit: cover;
+    place-content: center;
+
+
+
+}
+
+input#password, input#username, button#entrar{
+
+    color: #6b5dff !important;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    border: none;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 20vw;
+    min-width: 300px;
+
+}
+input#password::placeholder {
+    color: #9695a1;
+    font-size: 18px;
+  }
+
+  input#username::placeholder {
+    color: #9695a1;
+    font-size: 18px;
+  }
+
+button#entrar{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo_transparent{
+    width: 40vh;
+}

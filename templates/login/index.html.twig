@@ -1,0 +1,52 @@
+{% extends 'base1.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+
+
+
+<main id="main" class="d-flex align-items-center">
+
+
+<div class="">
+    <form c action="{{ path('app_login') }}" method="post">
+
+        <div class="center text-center mb-5">
+
+            <img  class="img-fluid logo_transparent" src="/assets/images/logo transparent.png" alt="">
+        </div>
+
+        <h1 class="text-center text-light mb-5"> Fazer Login</h1>
+        {% if error %}
+        <div class="text-danger fw-bold ">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <div class="form text-center">
+        <div class="mt-3">
+
+            <input placeholder="Digite Seu Username" type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+
+        <div class="mt-3">
+
+            <input placeholder="Digite Sua Senha" type="password" id="password" name="_password" />
+        </div>
+        <div class="mt-3">
+        <button id="entrar" type="submit">Entrar</button>
+    </div>
+    </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account" /> #}
+
+
+    </form>
+        <div class="text-center mt-2">
+        <a href="#" class="link-to-cadastro text-decoration-none text-light text-center fw-semibold"> Criar uma  Conta</a>
+    </div>
+</div>
+</main>
+{% endblock %}
