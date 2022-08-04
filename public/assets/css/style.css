@@ -158,3 +158,11 @@ div.posts{
     border-radius: 16px !important;
     --bs-modal-header-border-color: #6b5dff;
 }
+
+div.chats{
+
+    height: 350px;
+    overflow-y: scroll;
+    padding-right: 10px;
+
+}
