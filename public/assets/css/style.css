@@ -166,3 +166,15 @@ div.chats{
     padding-right: 10px;
 
 }
+
+button.postar{
+    background-color: #6b5dff !important;
+    border: 1px solid #6b5dff;
+}
+
+button.postar:hover{
+    background-color: transparent !important;
+    border: 1px solid #6b5dff;
+    color: #6b5dff !important;
+}
+
