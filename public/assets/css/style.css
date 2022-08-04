@@ -203,6 +203,11 @@ body#corpo2{
     margin: 0 !important;
     background-color: currentcolor;
     background-blend-mode: screen;
+    background-size: 100%;
+    max-width: max-content;
+    max-height: 100%;
+
+     overflow: hidden
 }
 
 main#main{
@@ -213,9 +218,22 @@ main#main{
     z-index: 1;
     background-repeat: no-repeat;
     background-color: #6b5dffa9 !important;
-
     object-fit: cover;
     place-content: center;
+}
+
+main#main1{
+    width: 100vw;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-color: #6b5dff00 !important;
+    object-fit: cover;
+    place-content: center;
+
+
 
 
 
@@ -255,4 +273,5 @@ button#entrar{
 .c1{
     background-color: #6b5dffc2 !important;
     height: 100vh;
+    justify-content: center;
 }
