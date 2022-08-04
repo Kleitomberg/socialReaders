@@ -195,6 +195,16 @@ body#corpo1{
     background-blend-mode: screen;
 }
 
+body#corpo2{
+
+    background-image: url("../images/bg2.png");
+    background-size: cover;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: currentcolor;
+    background-blend-mode: screen;
+}
+
 main#main{
     width: 100vw;
     margin: 0 !important;
@@ -240,4 +250,9 @@ button#entrar{
 
 .logo_transparent{
     width: 40vh;
+}
+
+.c1{
+    background-color: #6b5dffc2 !important;
+    height: 100vh;
 }

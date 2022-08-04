@@ -38,6 +38,7 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/, roles: ROLE_USER }
         - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/cadastro, roles: PUBLIC_ACCESS }
         - { path: ^/user/crud, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER]}
 
