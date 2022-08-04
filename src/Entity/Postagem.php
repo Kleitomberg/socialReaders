@@ -30,6 +30,7 @@ class Postagem
     {
         $this->setCriadoEm(new \DateTime());
         $this->setAtualizadoEm(new \DateTime());
+
     }
 
     public function getId(): ?int

@@ -71,7 +71,7 @@ color: rgb(255, 255, 255);
 fill: aquamarine;
 
 }
-input#indicacao {
+input#postagem_conteudo{
     margin-top: 50px !important;
     width: 100% !important;
     height: 100px !important;
