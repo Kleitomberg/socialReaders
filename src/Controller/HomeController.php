@@ -16,7 +16,10 @@ class HomeController extends AbstractController{
      */
     public function Indexpage(PostagemRepository $postagemRepository){
 
-        $postagens = $postagemRepository->findAll();
+        $postagens = $postagemRepository->findBy(
+            array(),
+            array('criado_em' => 'DESC')
+          );
         return $this->render("index.html.twig",[
             "postagens"=>$postagens
 
