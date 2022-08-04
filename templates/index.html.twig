@@ -6,7 +6,7 @@
 
 <div class="row linha">
 
-    <div class="col-md-3 sidebar mt-3 p-2 ">
+    <div class="col-md-3 sidebar mt-3 p-2 ms-2">
 
         <div class="info-user-bar">
             <img class="img-fluid profile" src="assets/images/profile.png" alt="logo"></a>
@@ -192,5 +192,14 @@
 
 
 </div>
+
+{% endblock %}
+
+{% block indexJS %}
+<script>
+    $('#exampleModal').on('shown.bs.modal', function (e) {
+  $("#corpo").css({ opacity: 1 });
+})
+</script>
 
 {% endblock %}

@@ -60,6 +60,8 @@ ul{
 .sidebar{
     background-color: #6b5dff !important;
     min-height: 630px;
+    max-height: max-content;
+    width: 20vw;
 }
 
 img.i{
@@ -157,6 +159,7 @@ div.posts{
     --bs-modal-bg: #8596c8!important;
     border-radius: 16px !important;
     --bs-modal-header-border-color: #6b5dff;
+    --bs-modal-width: 410px;
 }
 
 div.chats{
