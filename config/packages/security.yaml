@@ -1,6 +1,7 @@
 security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
+        App\Entity\User: 'auto'
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
@@ -39,6 +40,7 @@ security:
         #- { path: ^/, roles: ROLE_USER }
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/cadastro, roles: PUBLIC_ACCESS }
+        - { path: ^/criarUser, roles: PUBLIC_ACCESS }
         - { path: ^/user/crud, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER]}
 

@@ -239,7 +239,7 @@ main#main1{
 
 }
 
-input#password, input#username, button#entrar{
+input#password, input#username, button#entrar, button#cadastrar,input#email, input#nome{
 
     color: #6b5dff !important;
     border-radius: 4px;
