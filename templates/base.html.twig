@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
 
-        {% block title %}Welcome!
+        {% block title %}
+
+
         {% endblock %}
     </title>
     <link rel="icon"
@@ -54,12 +56,18 @@
                             <img class="img-fluid profile" src="assets/images/profile.png" alt="logo"></a>
                         </a>
                         <ul class="dropdown-menu">
+
+                          {% if app.user %}
+
                             <li><a class="dropdown-item" href="#">Perfil</a></li>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                             {% else %}
+                                entrar
+                            {% endif %}
                         </ul>
                     </li>
                 </ul>
