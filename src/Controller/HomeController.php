@@ -5,7 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Postagem;
 
-use App\Repository\PostagemRepository;
+use App\Repository\PostRepository;
 
 class HomeController extends AbstractController{
 
@@ -14,7 +14,7 @@ class HomeController extends AbstractController{
      *
      * @Route("/", name="home")
      */
-    public function Indexpage(PostagemRepository $postagemRepository){
+    public function Indexpage(PostRepository $postagemRepository){
 
         $postagens = $postagemRepository->findBy(
             array(),

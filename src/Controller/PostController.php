@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Postagem;
-use App\Entity\Usuario;
-use App\Repository\PostagemRepository;
-use App\Repository\UsuarioRepository;
+use App\Entity\Post;
+use App\Entity\User;
+use App\Repository\PostRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,17 +18,19 @@ class PostController extends AbstractController{
  * @Route("/createPost")
  */
 
-    public function createPost(Request $request, PostagemRepository $postagemRepository, UsuarioRepository $usuarioRepository){
+    public function createPost(Request $request, PostRepository $postagemRepository, UserRepository $usuarioRepository){
 
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         if ( isset( $_POST["postar"] )) {
-            $usuarios = [];
+
+            $user = $this->getUser();
             $conteudo = $_POST["conteudo"];
-            $usuarios = $usuarioRepository->findAll();
-            $usuario = $usuarios[0];
+
+            $usuario = $user;
 
 
-        $post = new Postagem();
+        $post = new Post();
         $post->setConteudo($conteudo);
         $post->setUsuario($usuario);
         $postagemRepository->add($post, true);
