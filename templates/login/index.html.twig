@@ -1,6 +1,6 @@
 {% extends 'base1.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}SocialReaders | Entrar   {% endblock %}
 
 {% block body %}
 
@@ -23,16 +23,16 @@
         {% endif %}
 
         <div class="form text-center">
-        <div class="mt-3">
-
-            <input required placeholder="Digite Seu Username" type="text" id="username" name="_username" value="{{ last_username }}" />
+        <div class="mt-3 input-icons">
+            <i class="fa-solid fa-envelope icone"></i>
+            <input class="input-field" required placeholder="Digite Seu E-mail" type="text" id="username" name="_username" value="{{ last_username }}" />
         </div>
 
 
 
-        <div class="mt-3">
-
-            <input required placeholder="Digite Sua Senha" type="password" id="password" name="_password" />
+        <div class="mt-3 input-icons">
+            <i class="fa-solid fa-lock icone"></i>
+            <input class="input-field" required placeholder="Digite Sua Senha" type="password" id="password" name="_password" />
         </div>
         <div class="mt-3">
         <button id="entrar" type="submit">Entrar</button>

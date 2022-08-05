@@ -256,12 +256,12 @@ input#password::placeholder {
     font-size: 18px;
   }
 
-  input#username::placeholder {
-    color: #9695a1;
+  input#username,input#nome,input#email::placeholder {
+    color: #9695a1 !important;
     font-size: 18px;
   }
 
-button#entrar{
+button#entrar, button#cadastrar{
     font-weight: bold;
     font-size: 18px;
 }
@@ -275,3 +275,36 @@ button#entrar{
     height: 100vh;
     justify-content: center;
 }
+
+
+/* icon dentro do input*/
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icone {
+    padding: 10px;
+    color: #6b5dff;
+    min-width: 50px;
+    text-align: center;
+    justify-content: center;
+    font-size: 21px !important;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    border: none !important;
+}
+
+
+.input-field:focus {
+    border: #6b5dff !important;
+  }

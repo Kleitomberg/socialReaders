@@ -1,6 +1,6 @@
 {% extends 'base2.twig' %}
 
-{% block title %}Cadastro{% endblock %}
+{% block title %}SocialReaders | Criar Conta {% endblock %}
 
 {% block body %}
 
@@ -20,17 +20,20 @@
 
                 <h1 class="text-center text-light mb-5"> Criar Conta</h1>
 
-                <div class="text-center mb-3">
-                    <input required placeholder="Digite Seu Nome" type="text" id="nome" name="nome" />
+                <div class="text-center mb-3 input-icons">
+                <i class="fa-solid fa-user icone"></i>
+                    <input class="input-field"  required placeholder="Digite Seu Nome" type="text" id="nome" name="nome" />
                 </div>
 
-                <div class="text-center mb-3">
-                    <input required placeholder="Digite Seu E-mail" type="email" id="email" name="email" />
+                <div class="text-center mb-3 input-icons">
+                 <i class="fa-solid fa-envelope icone"></i>
+                    <input class="input-field"  required placeholder="Digite Seu E-mail" type="email" id="email" name="email" />
                 </div>
 
 
-                <div class="text-center mb-3">
-                    <input required placeholder="Digite Sua Senha" type="password" id="password" name="password" />
+                <div class="text-center mb-3 input-icons">
+                <i class="fa-solid fa-lock icone"></i>
+                    <input class="input-field"  required placeholder="Digite Sua Senha" type="password" id="password" name="password" />
                 </div>
 
 
