@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class UserController extends AbstractController{
 
 
@@ -18,7 +18,7 @@ class UserController extends AbstractController{
          * @Route("/criarUser", name="app_cadastro")
          */
 
-    public function criarUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher){
+    public function criarUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils){
 
         if ( isset( $_POST["cadastrar"] )) {
 
@@ -31,7 +31,7 @@ class UserController extends AbstractController{
 
 
 
-        $plaintextPassword = "...";
+
         $usuario = new User();
         $usuario->setEmail($email);
         $usuario->setNome($nome);
@@ -40,7 +40,7 @@ class UserController extends AbstractController{
 
         $hashedPassword = $passwordHasher->hashPassword(
             $usuario,
-            $plaintextPassword
+            $senha
         );
         $usuario->setPassword($hashedPassword);
 
@@ -49,7 +49,20 @@ class UserController extends AbstractController{
         $userRepository->add($usuario, true);
 
 
-        return new Response("Criou");
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+
+
+
+        return $this->render('login/index.html.twig', [
+
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
         }//end if
         return new Response('ERRO');
     }
