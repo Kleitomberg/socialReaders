@@ -1,42 +1,49 @@
-*{
+* {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
-body{
+
+.bg-none{
+    --bs-card-bg: transparent !important;
+    --bs-card-border-color: none;
+}
+
+body {
     background-color: #c9d1e9;
 }
 
-.navbar{
+.navbar {
     background-color: #6b5dff !important;
     display: flex !important;
     justify-content: space-between !important;
     place-content: space-between !important;
 }
+
 .navbar-expand-lg .navbar-collapse {
     place-content: space-between !important;
 }
 
-img.logo{
-width: 15vw;
-padding: 0 !important;
-margin: 0 !important;
+img.logo {
+    width: 15vw;
+    padding: 0 !important;
+    margin: 0 !important;
 
 }
 
-img.profile{
+img.profile {
     width: 55px;
     border-radius: 50%;
 
-    }
+}
 
 
-    img.profile-post{
-        width: 45px;
-        border-radius: 50%;
+img.profile-post {
+    width: 45px;
+    border-radius: 50%;
 
-        }
+}
 
-input.form-control{
+input.form-control {
     background-color: #adbae0 !important;
     border: #6b5dff;
     width: 20vw !important;
@@ -47,11 +54,11 @@ input.form-control{
 
 }
 
-#navbarSupportedContent{
+#navbarSupportedContent {
     justify-content: center !important;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
@@ -61,29 +68,30 @@ ul{
     margin-top: var(--bs-dropdown-spacer);
 }
 
-.sidebar{
+.sidebar {
     background-color: #6b5dff !important;
     min-height: 630px;
     max-height: max-content;
     width: 20vw;
 }
 
-img.i{
-width: 200px;
-opacity: 0.3;
-color: rgb(255, 255, 255);
-fill: aquamarine;
+img.i {
+    width: 200px;
+    opacity: 0.3;
+    color: rgb(255, 255, 255);
+    fill: aquamarine;
 
 }
-input#postagem_conteudo{
+
+input#postagem_conteudo {
     margin-top: 50px !important;
     width: 100% !important;
     height: 100px !important;
 }
 
-div.linha{
-margin: 0 !important;
-gap: 6rem !important;
+div.linha {
+    margin: 0 !important;
+    gap: 6rem !important;
 }
 
 .flutuante-button {
@@ -97,34 +105,34 @@ gap: 6rem !important;
     color: rgb(92, 92, 232);
 }
 
-li.menu-item{
+li.menu-item {
     font-size: 22px;
     align-items: center;
 }
 
 
-ul.lista-menu{
-margin-top: 40px !important;
+ul.lista-menu {
+    margin-top: 40px !important;
 }
 
-li.menu-item:hover{
+li.menu-item:hover {
     color: black !important;
     cursor: pointer;
-    }
+}
 
-.info-user-bar{
+.info-user-bar {
     padding-left: 1rem;
     margin-top: 1rem !important;
     align-items: center;
 
 }
 
-.info-user-bar span{
+.info-user-bar span {
     font-size: 20px;
 }
 
 
-div.posts{
+div.posts {
     height: 400px;
     overflow-y: scroll;
     padding-right: 10px;
@@ -132,14 +140,16 @@ div.posts{
 
 
 ::-webkit-scrollbar-track {
-    background-color: #adbae0 ;
+    background-color: #adbae0;
     border-radius: 8px;
 }
+
 ::-webkit-scrollbar {
     width: 10px;
-    background: #adbae0 ;
+    background: #adbae0;
     border-radius: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #6b5dff;
     border-radius: 8px;
@@ -154,19 +164,19 @@ div.posts{
     max-width: var(--bs-modal-width);
     margin-right: 2%;
     top: 250px;
-    background-color: #8596c8!important;
+    background-color: #8596c8 !important;
 
     border-radius: 16px !important;
 }
 
-.modal{
-    --bs-modal-bg: #8596c8!important;
+.modal {
+    --bs-modal-bg: #8596c8 !important;
     border-radius: 16px !important;
     --bs-modal-header-border-color: #6b5dff;
     --bs-modal-width: 410px;
 }
 
-div.chats{
+div.chats {
 
     height: 350px;
     overflow-y: scroll;
@@ -174,18 +184,18 @@ div.chats{
 
 }
 
-button.postar{
+button.postar {
     background-color: #6b5dff !important;
     border: 1px solid #6b5dff;
 }
 
-button.postar:hover{
+button.postar:hover {
     background-color: transparent !important;
     border: 1px solid #6b5dff;
     color: #6b5dff !important;
 }
 
-body#corpo1{
+body#corpo1 {
 
     background-image: url("../images/bg.png");
     background-size: cover;
@@ -195,7 +205,7 @@ body#corpo1{
     background-blend-mode: screen;
 }
 
-body#corpo2{
+body#corpo2 {
 
     background-image: url("../images/bg2.png");
     background-size: cover;
@@ -207,10 +217,10 @@ body#corpo2{
     max-width: max-content;
     max-height: 100%;
 
-     overflow: hidden
+    overflow: hidden
 }
 
-main#main{
+main#main {
     width: 100vw;
     margin: 0 !important;
     padding: 0 !important;
@@ -222,7 +232,7 @@ main#main{
     place-content: center;
 }
 
-main#main1{
+main#main1 {
     width: 100vw;
     margin: 0 !important;
     padding: 0 !important;
@@ -239,7 +249,12 @@ main#main1{
 
 }
 
-input#password, input#username, button#entrar, button#cadastrar,input#email, input#nome{
+input#password,
+input#username,
+button#entrar,
+button#cadastrar,
+input#email,
+input#nome {
 
     color: #6b5dff !important;
     border-radius: 4px;
@@ -251,26 +266,30 @@ input#password, input#username, button#entrar, button#cadastrar,input#email, inp
     min-width: 300px;
 
 }
+
 input#password::placeholder {
     color: #9695a1;
     font-size: 18px;
-  }
+}
 
-  input#username,input#nome,input#email::placeholder {
+input#username,
+input#nome,
+input#email::placeholder {
     color: #9695a1 !important;
     font-size: 18px;
-  }
+}
 
-button#entrar, button#cadastrar{
+button#entrar,
+button#cadastrar {
     font-weight: bold;
     font-size: 18px;
 }
 
-.logo_transparent{
+.logo_transparent {
     width: 40vh;
 }
 
-.c1{
+.c1 {
     background-color: #6b5dffc2 !important;
     height: 100vh;
     justify-content: center;
@@ -307,4 +326,70 @@ button#entrar, button#cadastrar{
 
 .input-field:focus {
     border: #6b5dff !important;
-  }
+}
+
+
+
+/* CHATSSS*/
+
+
+
+.modal-chats {
+    z-index: 1;
+    min-width: 300px;
+    position: absolute;
+    bottom: 15px;
+    border-radius: 8px;
+    right: 100px;
+    background-color: #6b5dff;
+
+
+
+}
+
+
+.chats-header {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+    background-color: #6b5dff;
+    justify-content: space-between;
+    color: #f8f8f8;
+
+
+}
+
+.chats-header h1 {
+    margin-right: 40px;
+    font-size: 22px;
+}
+
+.chats-header i {
+
+    font-size: 22px;
+}
+
+.chats-body {
+
+    min-height: 400px;
+
+
+    overflow-y: scroll;
+}
+
+
+.card-chat:hover{
+    background-color: #d1cdff !important;
+    color: #fff !important;
+    cursor: pointer;
+    border-radius: 0 !important;
+
+}
+
+.show{
+    display: block !important;
+}
+
+.hide{
+    display: none !important;
+}
