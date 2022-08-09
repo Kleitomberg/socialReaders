@@ -327,6 +327,19 @@ button#cadastrar {
     border: none !important;
 }
 
+textarea{
+
+    resize: none !important;
+    height:120px !important;
+    overflow-y: auto;
+
+}
+
+form.postagem h1{
+    font-size: 22px;
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
 
 .input-field:focus {
     border: #6b5dff !important;
@@ -356,7 +369,7 @@ button#cadastrar {
     align-items: center;
     display: flex;
     padding: 10px;
-    background-color: #6b5dff;
+    background-color: #302f40;
     justify-content: space-between;
     color: #f8f8f8;
 
@@ -469,4 +482,9 @@ border: #6b5dff;
     background-color: transparent;
 border: 1px solid #6b5dff;
 color: #6b5dff;
+}
+
+
+.navbar-toggler{
+    display: none;
 }

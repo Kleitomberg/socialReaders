@@ -1,0 +1,30 @@
+
+
+/*Smartphones*/
+
+@media only screen and (max-width: 600px) {
+    img.logo {
+        width: 40vw;
+    }
+    img.profile {
+        width: 40px;
+        border-radius: 50%;
+    }
+
+    .sidebar{
+        display: none;
+    }
+    input.form-control{
+
+        background-color: #fff !important;
+    }
+
+    form.postagem h1{
+        font-size: 20px;
+        margin-bottom: 15px !important;
+        margin-top: 5px !important;
+    }
+
+
+
+  }

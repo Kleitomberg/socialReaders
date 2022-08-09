@@ -9,7 +9,7 @@
     <div class="col-md-3 sidebar mt-3 p-2 ms-2">
 
         <div class="info-user-bar">
-            <img class="img-fluid profile" src="assets/images/profile.png" alt="logo"></a>
+            <img class="img-fluid profile " src="assets/images/profile.png" alt="logo"></a>
             <span class="text-light fw-semibold">
              Kleitomberg
 
@@ -43,14 +43,16 @@
 
     <div class="col-md-4 mt-3 content">
 
-        <form method="post" action="/createPost" name="postagem">
+        <form method="post" action="/createPost" name="postagem" class="postagem">
 
-            <div>
+            <h1>Compartilhe uma Leitura, indique um livro...</h1>
+
+            <div class="form-floating">
+                <textarea class="form-control" name="conteudo" maxlength="255" required placeholder="Compartilhe sua Ultima Leitura, indique um livro..." id="postagem_conteudo"></textarea>
+                <label for="floatingTextarea">Leitura</label>
+              </div>
 
 
-                <input wrap="hard" class="form-control" type="text" name="conteudo" id="postagem_conteudo" required="required"
-                    maxlength="255" placeholder="Compartilhe sua Ultima Leitura, indique um livro...">
-            </div>
             <button name="postar" type="submit" class="btn btn-primary postar text-end mt-2">Postar</button>
         </form>
 
