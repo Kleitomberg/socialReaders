@@ -4,7 +4,14 @@
 
         <div class="chats-header d-flex">
             <h1>My chats</h1>
-            <i class="fa-solid fa-comment-medical"></i>
+            <div class="d-flex icones-modal-chats">
+                <i id="btn-minimize" class="fa-solid fa-minus" onclick="minimize()"></i>
+                <i id="btn-maxmize" class="fa-solid fa-compress d-none" onclick="maxmize()"></i>
+                <i id="btn-closer" class="ms-2 fa-solid fa-xmark" onclick="esconder()"></i>
+        </div>
+
+
+
         </div>
 
         <div class="chats-body">
