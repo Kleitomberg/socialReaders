@@ -33,7 +33,11 @@ img.logo {
 img.profile {
     width: 55px;
     border-radius: 50%;
+}
 
+img.user-profile-picture{
+    width: 100px;
+    border-radius: 50%;
 }
 
 
@@ -416,4 +420,53 @@ button#cadastrar {
 
 .icones-modal-chats{
     align-items: center;
+}
+
+
+/*PERFIL */
+
+.principal-profile{
+align-items: center;
+height: max-content;
+}
+
+.content-profile{
+
+}
+
+
+.card-book{
+width: max-content;
+padding: 5px;
+justify-content: center;
+text-align: center;
+min-width: 50px;
+background-color: #fff;
+color: #6b5dff;
+
+}
+
+.card-book:hover{
+    background-color: #6b5dff;
+border: 1px solid #6b5dff;
+color: #fff;
+cursor: pointer;
+}
+
+div.info{
+justify-content: center;
+align-items: center;
+gap: 3px;
+
+}
+
+.btn-edit-profile{
+background-color: #6b5dff   ;
+border: #6b5dff;
+}
+
+.btn-edit-profile:hover{
+    background-color: transparent;
+border: 1px solid #6b5dff;
+color: #6b5dff;
 }

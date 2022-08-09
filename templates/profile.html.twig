@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+
+
+<main class="principal-profile">
+
+
+    <div class="content-profile ">
+
+        <h1 class="text-center mb-3 mt-5">Meu Perfil</h1>
+
+
+        {% if app.user %}
+
+        <div class="text-center">
+            <img class="img-fluid user-profile-picture" src="assets/images/profile.png" alt="">
+            <h2>{{app.user.nome}}</h2>
+            <span class="text-center">{{app.user.email}}</span>
+        </div>
+
+        <div class="d-flex info mt-3">
+
+
+            <div class="card card-book">
+                <i class="fa-brands fa-readme"></i>
+                <span>100</span>
+            </div>
+
+            <div class="card card-book">
+                <i class="fa-solid fa-book"></i>
+                <span>100</span>
+            </div>
+            <div class="card card-book">
+                <i class="fa-solid fa-user-group"></i>
+                <span>100</span>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-3">
+            <button class="btn btn-primary btn-edit-profile text-center">Editar perfil</button>
+        </div>
+    </div>
+</main>
+{% endif %}
+
+
+{% endblock %}

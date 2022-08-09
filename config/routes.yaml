@@ -6,3 +6,9 @@ controllers:
 app_logout:
     path: /logout
     methods: GET
+
+profile:
+    path: /{username}
+    controller: App\Controller\ProfileController::profilePage
+    methods: GET
+

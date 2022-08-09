@@ -44,6 +44,9 @@ security:
         - { path: ^/user/crud, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER]}
 
+
+
+
 when@test:
     security:
         password_hashers:
