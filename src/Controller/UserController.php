@@ -27,11 +27,6 @@ class UserController extends AbstractController{
             $senha = $_POST["password"];
 
 
-
-
-
-
-
         $usuario = new User();
         $usuario->setEmail($email);
         $usuario->setNome($nome);
@@ -65,5 +60,16 @@ class UserController extends AbstractController{
         ]);
         }//end if
         return new Response('ERRO');
+    }
+
+        /**
+         * @Route("/editarUser", name="app_useredit")
+         */
+
+    public function editUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils)
+    {
+
+
+        return $this->render("login/useredit.html.twig");
     }
 }

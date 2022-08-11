@@ -5,7 +5,10 @@
 
 .bg-none{
     --bs-card-bg: transparent !important;
-    --bs-card-border-color: none;
+    --bs-card-border-color: #6b5dff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 body {
@@ -271,13 +274,35 @@ input#nome {
 
 }
 
+.maincolor{
+    color: #6b5dff !important;
+}
+button#editusuerprofile{
+    color: #ffffff !important;
+    border-radius: 4px;
+    background-color: #6b5dff;
+    border: none;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 20vw;
+    min-width: 300px;
+
+}
+
+button#editusuerprofile:hover{
+    background-color: transparent;
+    color: #6b5dff !important;
+    border: 1px solid #6b5dff;
+}
+
+
 input#password::placeholder {
     color: #9695a1;
     font-size: 18px;
 }
 
-input#username,
-input#nome,
+input#username::placeholder,
+input#nome::placeholder,
 input#email::placeholder {
     color: #9695a1 !important;
     font-size: 18px;
@@ -298,6 +323,17 @@ button#cadastrar {
     height: 100vh;
     justify-content: center;
 }
+
+.c2 {
+
+    height: 70vh;
+    justify-content: center;
+}
+
+div#edituser{
+    justify-content: center;
+}
+
 
 
 /* icon dentro do input*/
@@ -361,8 +397,22 @@ form.postagem h1{
     background-color: #6b5dff;
 
 
-
 }
+
+.col-md-9{
+    padding-left: 0 !important;
+}
+
+.col-md-3{
+    padding-right: 0 !important;
+}
+
+p.message{
+font-size: 16px;
+opacity: 0.6;
+color: #fff;
+}
+
 
 
 .chats-header {
@@ -394,6 +444,10 @@ form.postagem h1{
     overflow-y: scroll;
 }
 
+
+.card-book{
+    border-radius: 0 !important;
+}
 
 .card-chat:hover{
     background-color: #d1cdff !important;
@@ -443,9 +497,7 @@ align-items: center;
 height: max-content;
 }
 
-.content-profile{
 
-}
 
 
 .card-book{
@@ -456,6 +508,7 @@ text-align: center;
 min-width: 50px;
 background-color: #fff;
 color: #6b5dff;
+
 
 }
 

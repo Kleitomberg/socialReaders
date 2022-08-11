@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+<div class="row" id="edituser">
+    <div class="col-md-6 c2 d-flex align-items-center text-center">
+
+
+<div class="fomr-cads ">
+    <form name="editar" class="" action="" method="post">
+
+
+
+        <h1 class="text-center maincolor mb-5 "> Editar Perfil</h1>
+
+        <div class="text-center mb-3 input-icons">
+        <i class="fa-solid fa-user icone"></i>
+            <input value="{{app.user.nome}}" class="input-field"  required placeholder="Digite Seu Nome" type="text" id="nome" name="nome" />
+        </div>
+
+        <div class="text-center mb-3 input-icons">
+         <i class="fa-solid fa-envelope icone"></i>
+            <input value="{{app.user.email}}" class="input-field"  required placeholder="Digite Seu E-mail" type="email" id="email" name="email" />
+        </div>
+
+
+        <input type="hidden" name="userid" value="{{app.user.id}}">
+
+        <div class="mt-3 text-center">
+        <button name="editar" id="editusuerprofile" type="submit">Salvar</button>
+
+    </div>
+
+    <div class="mt-3 text-center">
+        <a href="/{{app.user.nome}}" class="text-danger fw-bold text-decoration-none" name="cancelar" id="Cancelar" >Cancelar</a>
+    </div>
+
+
+    </form>
+
+</div>
+    </div>
+</div>
+
+{% endblock %}
