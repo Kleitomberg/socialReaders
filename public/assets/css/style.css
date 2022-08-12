@@ -54,10 +54,13 @@ input.form-control {
     background-color: #adbae0 !important;
     border: #6b5dff;
     width: 20vw !important;
-
     word-wrap: break-word !important;
     word-break: break-all !important;
+}
 
+input.search-amigos{
+    width: 100% !important;
+    height: 45px;
 
 }
 
@@ -540,4 +543,23 @@ color: #6b5dff;
 
 .navbar-toggler{
     display: none;
+}
+
+
+/*Friends */
+
+div.friends{
+width: 300px;
+
+}
+
+div.friends-row{
+    align-items: center;
+}
+
+div.list-amigos{
+background-color: #6b5dff;
+height: max-content;
+overflow: scroll;
+height: 450PX;
 }
