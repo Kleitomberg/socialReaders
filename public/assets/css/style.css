@@ -59,9 +59,13 @@ input.form-control {
 }
 
 input.search-amigos{
-    width: 100% !important;
+    width: 50vw !important;
     height: 45px;
 
+}
+
+form.form-friends{
+    justify-content: center ;
 }
 
 #navbarSupportedContent {
@@ -550,6 +554,7 @@ color: #6b5dff;
 
 div.friends{
 width: 300px;
+height: 100px;
 
 }
 
@@ -558,8 +563,15 @@ div.friends-row{
 }
 
 div.list-amigos{
-background-color: #6b5dff;
+
 height: max-content;
 overflow: scroll;
 height: 450PX;
+width: 100%;
+}
+
+button.btn-buscar-friend{
+width: 80px;
+position: relative;
+right: 50px;
 }
