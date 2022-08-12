@@ -35,9 +35,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'usuario', targetEntity: Post::class)]
     private Collection $posts;
 
+    #[ORM\ManyToMany(targetEntity: Amigos::class, mappedBy: 'id_solicitante')]
+    private Collection $amigos;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
+        $this->amigos = new ArrayCollection();
     }
 
     public function __toString()
@@ -84,6 +88,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @see UserInterface
      */
+
+    public function getIdentificdorUnique(): ?int
+    {
+        return $this->id;
+    }
+
+       /**
+     * @see UserInterface
+     */
+
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
@@ -158,6 +172,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             if ($post->getUsuario() === $this) {
                 $post->setUsuario(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Amigos>
+     */
+    public function getAmigos(): Collection
+    {
+        return $this->amigos;
+    }
+
+    public function addAmigo(Amigos $amigo): self
+    {
+        if (!$this->amigos->contains($amigo)) {
+            $this->amigos->add($amigo);
+            $amigo->addIdSolicitante($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAmigo(Amigos $amigo): self
+    {
+        if ($this->amigos->removeElement($amigo)) {
+            $amigo->removeIdSolicitante($this);
         }
 
         return $this;

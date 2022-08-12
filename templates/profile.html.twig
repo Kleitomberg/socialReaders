@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+
+{% block title %} SocialReaders |{% if app.user %} {{app.user.nome}} {%endif%} {% endblock %}
 {% block body %}
 
 <main class="principal-profile">
