@@ -29,6 +29,13 @@ class SolicitacaoAmizade
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?User $id_solicitado = null;
 
+    public function __construct()
+    {
+        $this->setDataSolicitacao(new \DateTime());
+        //$this->setAtualizadoEm(new \DateTime());
+
+    }
+
     public function getId(): ?int
     {
         return $this->id;

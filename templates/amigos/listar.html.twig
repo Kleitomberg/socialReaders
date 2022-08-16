@@ -20,6 +20,25 @@
 
     <div class="list-amigos mt-4 p-2 row gap-3 center ">
 
+        {%if solicitacoes%}
+        <h1>Solicitões de Amizade <span class=""> {{solicitacoes|length}}</span></h1>
+        {% for s in solicitacoes %}
+
+
+        <div class="card">
+            <div class="card-body">
+                Fulainho quer ser seu amigo
+                <button class="btn-sm btn btn-danger"><i class="fa-solid fa-check"></i></button>
+                <button class="btn-sm btn btn-success"><i class="fa-solid fa-xmark"></i></button>
+
+            </div>
+
+        </div>
+
+{%endfor%}
+
+        {%endif%}
+
         {%if frindssearch%}
 
         Foram enocntrados {{frindssearch|length}}
@@ -37,15 +56,19 @@
                     <div class="col-md-9">
 
                         <p>{{resultado.nome}}</p>
-                        <div>
-                            <button class="btn btn-primary">Mensagem</button>
-                            <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary btn-sm">Mensagem</button>
+                            <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                            <form class="d-flex" action="{{path('app_addamimgos')}}" method="post" name="amizade">
+                            <input type="hidden" name="userid" value="{{resultado.id}}">
+                            <button type="submit" name="amizade" class="btn btn-warning btn-sm"><i class="fa-solid fa-user-plus"></i></button>
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-{%endfor%}
+    {%endfor%}
 
         {%else%}
         {%if myfriends%}

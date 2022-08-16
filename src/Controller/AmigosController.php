@@ -11,6 +11,7 @@ use App\Entity\SolicitacaoAmizade;
 use App\Repository\SolicitacaoAmizadeRepository;
 
 use App\Repository\UserRepository;
+use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 
 class AmigosController extends AbstractController{
@@ -31,6 +32,15 @@ class AmigosController extends AbstractController{
 
 
             dump($id_solicitante_strng);
+
+            $solicitacoes = $solicitacaoAmizadeRepository->findBy(
+
+                array('id_solicitado' => $id_solicitante_strng, 'situacao' => 0,)
+
+            );
+
+
+
 
             if($id_solicitante==$id_solicitante_strng){
 
@@ -84,8 +94,12 @@ class AmigosController extends AbstractController{
         //$arrayobjeto = $arrayFriends;
         //dump($arrayobjeto);
 
+        dump($solicitacoes);
+
         return $this->render("amigos/listar.html.twig",[
-            "myfriends" => $arrayAmigos
+            "myfriends" => $arrayAmigos,
+            'frindssearch'=>'',
+            'solicitacoes'=>$solicitacoes
         ]);
     }
 
@@ -125,6 +139,52 @@ class AmigosController extends AbstractController{
 
         return new Response('Erro');
        // return $this->redirectToRoute("app_serachamigos",);
+
+
+    }
+
+     /**
+         * @Route("/addamigos", name="app_addamimgos")
+         */
+
+    public function addAmigos(SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository){
+
+        if(isset($_POST["amizade"])){
+
+
+
+            $data_solicitacao =date('y-m-d h:i:s');
+            dump($data_solicitacao);
+            $data_confirmacao =date('d/m/Y');
+            $situacao = 0;
+            $solicitante = $user = $this->getUser();
+            dump($user);
+            $solicitado =$_POST["userid"];
+            //dump($solicitado);
+            $friend = $userRepository->findOneBy(array(
+                'id' => $solicitado
+                )
+            );
+
+            $newformat = strtotime($data_solicitacao);
+
+            $amizade = new SolicitacaoAmizade();
+
+            $amizade->setSituacao($situacao);
+            $amizade->setIdSolicitante($solicitante);
+            $amizade->setIdSolicitado($friend);
+            dump($data_solicitacao);
+            //$amizade->setDataSolicitacao($data_solicitacao);
+            //$amizade->setDataSolicitacao($newformat, bool $a= false);
+
+            $solicitacaoAmizadeRepository->add($amizade, true);
+
+
+            return new Response("HOUVE POST");
+
+        }
+
+        return new Response("FALHA NO PROCESSAMENTO");
 
 
     }
