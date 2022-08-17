@@ -20,24 +20,32 @@
 
     <div class="list-amigos mt-4 p-2 row gap-3 center ">
 
+        <div class="solic">
         {%if solicitacoes%}
         <h1>Solicitões de Amizade <span class=""> {{solicitacoes|length}}</span></h1>
-        {% for s in solicitacoes %}
 
 
-        <div class="card">
-            <div class="card-body">
-                Fulainho quer ser seu amigo
-                <button class="btn-sm btn btn-danger"><i class="fa-solid fa-check"></i></button>
-                <button class="btn-sm btn btn-success"><i class="fa-solid fa-xmark"></i></button>
+        {% if solicitante %}
 
+        {%for sol in solicitante %}
+        <div class="card card-solicitacoes gap-2 d-flex">
+            <div class="card-body gap-3 d-flex">
+
+
+               <strong> {{sol.nome}} </strong>quer ser seu amigo
+                <form class="d-flex" action="" method="post" name="confirm-solicitacao">
+                <button type="submit" name="aceitar" class="btn-sm btn btn-success"><i class="fa-solid fa-check"></i></button>
+                <button type="submit" name="rejeitar" class="btn-sm btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+            </form>
             </div>
 
         </div>
-
-{%endfor%}
+        {%endfor%}
 
         {%endif%}
+
+        {%endif%}
+    </div>
 
         {%if frindssearch%}
 
@@ -61,6 +69,7 @@
                             <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                             <form class="d-flex" action="{{path('app_addamimgos')}}" method="post" name="amizade">
                             <input type="hidden" name="userid" value="{{resultado.id}}">
+                            <input type="hidden" name="meuid" value="{{app.user.id}}">
                             <button type="submit" name="amizade" class="btn btn-warning btn-sm"><i class="fa-solid fa-user-plus"></i></button>
                         </form>
                         </div>
@@ -72,6 +81,7 @@
 
         {%else%}
         {%if myfriends%}
+        <h1>My Friends</h1>
         {% for amigo in myfriends%}
 
         <div class="card friends mt-3 mb-3">

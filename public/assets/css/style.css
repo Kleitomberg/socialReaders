@@ -575,3 +575,8 @@ width: 80px;
 position: relative;
 right: 50px;
 }
+
+div.card-solicitacoes{
+    width: max-content;
+    height: max-content;
+}

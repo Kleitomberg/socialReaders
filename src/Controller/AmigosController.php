@@ -93,14 +93,39 @@ class AmigosController extends AbstractController{
 
         //$arrayobjeto = $arrayFriends;
         //dump($arrayobjeto);
+if($solicitacoes){
+        $usersolicitante = $userRepository->findBy(
+            array(
+            'id'=> $solicitacoes[0]->getIdSolicitante()->getId()
+        ));
 
-        dump($solicitacoes);
+        //dump($solicitacoes);
+        $solicitantee=[];
+        foreach ($solicitacoes as &$idsol) {
+            dump($idsol->getIdSolicitante());
+             array_push($solicitantee, $idsol->getIdSolicitante());
+
+         }
+         dump($solicitantee);
+
+       // dump($usersolicitante);
 
         return $this->render("amigos/listar.html.twig",[
             "myfriends" => $arrayAmigos,
             'frindssearch'=>'',
-            'solicitacoes'=>$solicitacoes
+            'solicitacoes'=>$solicitacoes,
+            'solicitante'=>$solicitantee
         ]);
+    }else{
+        $usersolicitante=[];
+        return $this->render("amigos/listar.html.twig",[
+            "myfriends" => $arrayAmigos,
+            'frindssearch'=>'',
+            'solicitacoes'=>$solicitacoes,
+
+        ]);
+    }
+
     }
 
 
@@ -129,9 +154,11 @@ class AmigosController extends AbstractController{
             );
             dump($serachfriend);
 
+
             return $this->render("amigos/listar.html.twig",[
                 'frindssearch'=>$serachfriend,
-                'myfriends'=>''
+                'myfriends'=>'',
+                'solicitacoes'=>""
 
             ]);
 
@@ -157,12 +184,17 @@ class AmigosController extends AbstractController{
             dump($data_solicitacao);
             $data_confirmacao =date('d/m/Y');
             $situacao = 0;
-            $solicitante = $user = $this->getUser();
-            dump($user);
+            $solicitante = $_POST["meuid"];
+            dump($solicitante);
             $solicitado =$_POST["userid"];
-            //dump($solicitado);
+            dump($solicitado);
             $friend = $userRepository->findOneBy(array(
                 'id' => $solicitado
+                )
+            );
+
+            $eu = $userRepository->findOneBy(array(
+                'id' => $solicitante
                 )
             );
 
@@ -171,7 +203,7 @@ class AmigosController extends AbstractController{
             $amizade = new SolicitacaoAmizade();
 
             $amizade->setSituacao($situacao);
-            $amizade->setIdSolicitante($solicitante);
+            $amizade->setIdSolicitante($eu);
             $amizade->setIdSolicitado($friend);
             dump($data_solicitacao);
             //$amizade->setDataSolicitacao($data_solicitacao);
@@ -180,12 +212,16 @@ class AmigosController extends AbstractController{
             $solicitacaoAmizadeRepository->add($amizade, true);
 
 
-            return new Response("HOUVE POST");
+            return $this->redirectToRoute('app_amigos');
 
         }
 
         return new Response("FALHA NO PROCESSAMENTO");
 
+
+    }
+
+    public function confirmSolicitacao(){
 
     }
 
