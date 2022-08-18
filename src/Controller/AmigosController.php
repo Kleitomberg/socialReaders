@@ -279,18 +279,25 @@ if($solicitacoes){
             $meuid = $_POST['meuid'];
             $idsolicitante = $_POST['idsolicitante'];
             $msg_error = "Solicitação rejeitadada";
+            $solicitacaoID = $_POST['solicitacaoID'];
 
 
-            $aSolicitacao = $solicitacaoAmizadeRepository->findOneBy(
+            $aSolicitacao = $solicitacaoAmizadeRepository->find(
                 array(
-                    "id_solicitado"=>$meuid, 'id_solicitante'=>$idsolicitante, 'situacao'=>0
+                    "id"=>$solicitacaoID
                 )
                 );
 
+                if (!$aSolicitacao) {
+                    throw $this->createNotFoundException('Nenhuma solicitação encontrada com  id '.$solicitacaoID);
+                }else{
+
                 $em->remove($aSolicitacao);
                 $em->flush();
-                return $this->redirectToRoute('app_amigos',['msg_error'=>$msg_error]);
+
         }
+        return $this->redirectToRoute('app_amigos',['msg_error'=>$msg_error]);
+    }
 
 
     }

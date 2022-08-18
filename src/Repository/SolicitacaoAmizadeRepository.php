@@ -63,4 +63,6 @@ class SolicitacaoAmizadeRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
 }

@@ -6,7 +6,9 @@ use App\Repository\SolicitacaoAmizadeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: SolicitacaoAmizadeRepository::class)]
+
 class SolicitacaoAmizade
 {
     #[ORM\Id]

@@ -8,12 +8,7 @@
 <div class="container">
 
     <h1 class="mb-4 mt-5"> Amigos </h1>
-  {% if msg or msg_error%}
 
-    <div>
-        {{msg}} {{msg_error}}
-    </div>
-    {%endif%}
 
     <div class="text-center  div-form-friends">
         <form method="post" action="{{path('app_serachamigos')}}" class="d-flex form-friends justfy-content-center"
@@ -34,15 +29,21 @@
             <div class="solic">
             <h1>Solicitões de Amizade <span class=""> {{solicitacoes|length}}</span></h1>
 
-
             {% if solicitante %}
+
+
             <div class="d-flex gap-3 rolagem-solici">
                 {%for sol in solicitante %}
+
                 <div class="card card-solicitacoes gap-2 d-flex mt-4">
                     <div class="card-body gap-3 d-flex">
 
                         <form class="d-flex form-btns-solicita" action="{{path('app_responseSolicitacao')}}" method="post" name="confirm-solicitacao">
+                            {%for s in solicitacoes%}
+                            <input type="hidden" name="solicitacaoID" value="{{s.id}}">
+                                {%endfor%}
                             <input type="hidden" name="meuid" id="{{app.user.id}}" value="{{app.user.id}}">
+
                             <input type="hidden" name="idsolicitante" id="{{sol.id}}" value="{{sol.id}}">
                         <strong> {{sol.nome}}</strong>quer ser seu amigo
                             <button type="submit" name="aceitar" class="btn-sm btn btn-success"><i
@@ -97,7 +98,7 @@
         {%else%}
         <h1 class="mt-5">My Friends</h1>
         {%if myfriends%}
-
+<div class="meusamigos row gap-2 mt-3 ">
         {% for amigo in myfriends%}
 
         <div class="card friends mb-3">
@@ -120,6 +121,7 @@
             </div>
         </div>
         {%endfor%}
+    </div>
         {%else%}
         <p>Você ainda não tem amigos :(</p>
         {%endif%}
