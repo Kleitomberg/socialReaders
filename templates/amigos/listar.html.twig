@@ -8,44 +8,58 @@
 <div class="container">
 
     <h1 class="mb-4 mt-5"> Amigos </h1>
+  {% if msg or msg_error%}
+
+    <div>
+        {{msg}} {{msg_error}}
+    </div>
+    {%endif%}
 
     <div class="text-center  div-form-friends">
-        <form method="post" action="{{path('app_serachamigos')}}" class="d-flex form-friends justfy-content-center" role="search" name="searchfriends">
+        <form method="post" action="{{path('app_serachamigos')}}" class="d-flex form-friends justfy-content-center"
+            role="search" name="searchfriends">
             <div class="inp-bt d-flex">
-            <input class="form-control search-amigos" name="friends" type="search" placeholder="Buscar Amigos" aria-label="Search">
-            <button type="submit" class="btn btn-primary btn-buscar-friend"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+                <input class="form-control search-amigos" name="friends" type="search" placeholder="Buscar Amigos"
+                    aria-label="Search">
+                <button type="submit" class="btn btn-primary btn-buscar-friend"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
         </form>
     </div>
 
-    <div class="list-amigos mt-4 p-2 row gap-3 center ">
-
-        <div class="solic">
-        {%if solicitacoes%}
-        <h1>Solicitões de Amizade <span class=""> {{solicitacoes|length}}</span></h1>
+    <div class="list-amigos mt-4 p-2  gap-3 center ">
 
 
-        {% if solicitante %}
-
-        {%for sol in solicitante %}
-        <div class="card card-solicitacoes gap-2 d-flex">
-            <div class="card-body gap-3 d-flex">
+            {%if solicitacoes%}
+            <div class="solic">
+            <h1>Solicitões de Amizade <span class=""> {{solicitacoes|length}}</span></h1>
 
 
-               <strong> {{sol.nome}} </strong>quer ser seu amigo
-                <form class="d-flex" action="" method="post" name="confirm-solicitacao">
-                <button type="submit" name="aceitar" class="btn-sm btn btn-success"><i class="fa-solid fa-check"></i></button>
-                <button type="submit" name="rejeitar" class="btn-sm btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
-            </form>
+            {% if solicitante %}
+            <div class="d-flex gap-3 rolagem-solici">
+                {%for sol in solicitante %}
+                <div class="card card-solicitacoes gap-2 d-flex mt-4">
+                    <div class="card-body gap-3 d-flex">
+
+                        <form class="d-flex form-btns-solicita" action="{{path('app_responseSolicitacao')}}" method="post" name="confirm-solicitacao">
+                            <input type="hidden" name="meuid" id="{{app.user.id}}" value="{{app.user.id}}">
+                            <input type="hidden" name="idsolicitante" id="{{sol.id}}" value="{{sol.id}}">
+                        <strong> {{sol.nome}}</strong>quer ser seu amigo
+                            <button type="submit" name="aceitar" class="btn-sm btn btn-success"><i
+                                    class="fa-solid fa-check"></i></button>
+                            <button type="submit" name="rejeitar" class="btn-sm btn btn-danger"><i
+                                    class="fa-solid fa-xmark"></i></button>
+                        </form>
+                    </div>
+
+                </div>
+                {%endfor%}
             </div>
 
+            {%endif%}
         </div>
-        {%endfor%}
+            {%endif%}
 
-        {%endif%}
-
-        {%endif%}
-    </div>
 
         {%if frindssearch%}
 
@@ -68,23 +82,25 @@
                             <button class="btn btn-primary btn-sm">Mensagem</button>
                             <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                             <form class="d-flex" action="{{path('app_addamimgos')}}" method="post" name="amizade">
-                            <input type="hidden" name="userid" value="{{resultado.id}}">
-                            <input type="hidden" name="meuid" value="{{app.user.id}}">
-                            <button type="submit" name="amizade" class="btn btn-warning btn-sm"><i class="fa-solid fa-user-plus"></i></button>
-                        </form>
+                                <input type="hidden" name="userid" value="{{resultado.id}}">
+                                <input type="hidden" name="meuid" value="{{app.user.id}}">
+                                <button type="submit" name="amizade" class="btn btn-warning btn-sm"><i
+                                        class="fa-solid fa-user-plus"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    {%endfor%}
+        {%endfor%}
 
         {%else%}
+        <h1 class="mt-5">My Friends</h1>
         {%if myfriends%}
-        <h1>My Friends</h1>
+
         {% for amigo in myfriends%}
 
-        <div class="card friends mt-3 mb-3">
+        <div class="card friends mb-3">
             <div class="card-body gap-2">
 
                 <div class="row friends-row">

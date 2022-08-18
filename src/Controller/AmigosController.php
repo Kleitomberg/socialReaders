@@ -13,6 +13,7 @@ use App\Repository\SolicitacaoAmizadeRepository;
 use App\Repository\UserRepository;
 use DateTime;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
 
 class AmigosController extends AbstractController{
 
@@ -114,7 +115,9 @@ if($solicitacoes){
             "myfriends" => $arrayAmigos,
             'frindssearch'=>'',
             'solicitacoes'=>$solicitacoes,
-            'solicitante'=>$solicitantee
+            'solicitante'=>$solicitantee,
+            'msg'=>'',
+            'msg_error'=>''
         ]);
     }else{
         $usersolicitante=[];
@@ -122,6 +125,8 @@ if($solicitacoes){
             "myfriends" => $arrayAmigos,
             'frindssearch'=>'',
             'solicitacoes'=>$solicitacoes,
+            'msg'=>'',
+            'msg_error'=>''
 
         ]);
     }
@@ -221,7 +226,72 @@ if($solicitacoes){
 
     }
 
-    public function confirmSolicitacao(){
+    /**
+         * @Route("/solicitacaoresponse", name="app_responseSolicitacao")
+         */
+
+    public function confirmSolicitacao(SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository, EntityManagerInterface $em){
+
+
+
+        if( isset($_POST['aceitar'])){
+
+            $meuid = $_POST['meuid'];
+            $idsolicitante = $_POST['idsolicitante'];
+
+
+            $aSolicitacao = $solicitacaoAmizadeRepository->findOneBy(
+                array(
+                    "id_solicitado"=>$meuid, 'id_solicitante'=>$idsolicitante, 'situacao'=>0
+                )
+                );
+
+                $aSolicitacao->setSituacao(1);
+                $em->flush();
+                $msg_success = "Solicitação Aceita!";
+
+                $friend = $userRepository->findOneBy(array(
+                    'id' => $idsolicitante
+                    )
+                );
+
+                $eu = $userRepository->findOneBy(array(
+                    'id' => $meuid
+                    )
+                );
+
+                $amizade = new SolicitacaoAmizade();
+
+                $amizade->setSituacao(1);
+                $amizade->setIdSolicitante($eu);
+                $amizade->setIdSolicitado($friend);
+
+                $em->persist($amizade);
+                $em->flush();
+
+               // $aSolicitacao = $solicitacaoAmizadeRepository->add($aSolicitacao);
+
+            dump($aSolicitacao);
+
+            return $this->redirectToRoute('app_amigos');
+        }else if(isset($_POST['rejeitar'])){
+
+            $meuid = $_POST['meuid'];
+            $idsolicitante = $_POST['idsolicitante'];
+            $msg_error = "Solicitação rejeitadada";
+
+
+            $aSolicitacao = $solicitacaoAmizadeRepository->findOneBy(
+                array(
+                    "id_solicitado"=>$meuid, 'id_solicitante'=>$idsolicitante, 'situacao'=>0
+                )
+                );
+
+                $em->remove($aSolicitacao);
+                $em->flush();
+                return $this->redirectToRoute('app_amigos',['msg_error'=>$msg_error]);
+        }
+
 
     }
 

@@ -580,3 +580,25 @@ div.card-solicitacoes{
     width: max-content;
     height: max-content;
 }
+
+
+div.rolagem-solici{
+height: max-content;
+
+overflow-x: scroll;
+
+}
+
+div.list-amigos h1{
+    font-size: 22px;
+}
+
+form.form-btns-solicita button{
+    min-width: 25px;
+    min-height: 25px;
+    width: max-content;
+    height: max-content;
+}
+form.form-btns-solicita {
+    gap: 5px;
+}

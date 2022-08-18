@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class UserController extends AbstractController{
 
@@ -66,8 +67,27 @@ class UserController extends AbstractController{
          * @Route("/editarUser", name="app_useredit")
          */
 
-    public function editUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils)
+    public function editUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils, EntityManagerInterface $em)
     {
+
+        if(isset($_POST['editarusuario'])){
+
+            $username = $_POST['nome'];
+            $email = $_POST['email'];
+
+
+            $useronline = $this->getUser()->getUserIdentifier();
+
+            $myuser = $userRepository->findOneBy(array('email' => $useronline));
+            $myuser->setNome($username);
+            $myuser->setEmail($email);
+            $em->flush();
+
+
+
+            return $this->redirectToRoute("profile",array('username' => $myuser->getNome()));
+
+        }
 
 
         return $this->render("login/useredit.html.twig");
