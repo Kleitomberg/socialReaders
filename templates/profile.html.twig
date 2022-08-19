@@ -17,7 +17,7 @@
         {% if app.user.imageprofile%}
             <img class="img-fluid user-profile-picture" src="uploads/imagesprofile/{{app.user.imageprofile}}" alt="">
         {% else %}
-        <img class="img-fluid user-profile-picture" src="assets/images/profile.png" alt="">
+        <img class="img-fluid user-profile-picture" src="assets/images/noneuser.png" alt="">
         {%endif%}
             <h2>{{app.user.nome}}</h2>
             <span class="text-center">{{app.user.email}}</span>

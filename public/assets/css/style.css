@@ -45,6 +45,11 @@ img.user-profile-picture{
     border-radius: 50%;
     min-width: 120px;
     min-height: 120px;
+
+    background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
 }
 
 
