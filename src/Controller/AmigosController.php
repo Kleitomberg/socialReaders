@@ -179,7 +179,7 @@ if($solicitacoes){
          * @Route("/addamigos", name="app_addamimgos")
          */
 
-    public function addAmigos(SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository){
+    public function addAmigos(SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository, EntityManagerInterface $em){
 
         if(isset($_POST["amizade"])){
 
@@ -214,7 +214,17 @@ if($solicitacoes){
             //$amizade->setDataSolicitacao($data_solicitacao);
             //$amizade->setDataSolicitacao($newformat, bool $a= false);
 
-            $solicitacaoAmizadeRepository->add($amizade, true);
+            $issolicitacao = $solicitacaoAmizadeRepository->findOneBy(
+                array(
+                    "id_solicitado"=>$friend, 'id_solicitante'=>$eu
+                )
+                );
+                //evita que o mesmo usuario envie duas solicitações para o mesmo usuario
+                if(!$issolicitacao){
+
+                    $em->persist($amizade);
+                    $em->flush();
+                }
 
 
             return $this->redirectToRoute('app_amigos');
