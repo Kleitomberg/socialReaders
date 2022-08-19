@@ -73,7 +73,7 @@
 
                 <div class="row friends-row">
                     <div class="col">
-                        <img class="img-fluid profile " src="assets/images/profile2.jpg" alt="logo"></a>
+                        <img class="img-fluid profile " src="uploads/imagesprofile/{{resultado.imageprofile}}" alt="logo"></a>
                     </div>
 
                     <div class="col-md-9">
@@ -97,6 +97,7 @@
 
         {%else%}
         <h1 class="mt-5">My Friends</h1>
+
         {%if myfriends%}
 <div class="meusamigos row gap-2 mt-3 ">
         {% for amigo in myfriends%}

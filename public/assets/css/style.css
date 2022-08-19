@@ -38,6 +38,13 @@ img.profile {
     border-radius: 50%;
     min-width: 50px;
     min-height: 50px;
+    border: 2px solid #f8f8f8;
+    border-style: double;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
 }
 
 img.user-profile-picture{
@@ -45,7 +52,8 @@ img.user-profile-picture{
     border-radius: 50%;
     min-width: 120px;
     min-height: 120px;
-
+    border: 4px solid #6b5dff;
+    border-style: double;
     background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -56,6 +64,13 @@ img.user-profile-picture{
 img.profile-post {
     width: 45px;
     border-radius: 50%;
+    min-width: 50px;
+    min-height: 50px;
+
+    background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
 
 }
 
@@ -417,10 +432,12 @@ form.postagem h1{
 
 .col-md-9{
     padding-left: 0 !important;
+    width: 72%;
 }
 
 .col-md-3{
     padding-right: 0 !important;
+    width: 25%;
 }
 
 p.message{
@@ -517,7 +534,7 @@ height: max-content;
 
 
 .card-book{
-width: max-content;
+width: 10vw;
 padding: 5px;
 justify-content: center;
 text-align: center;
@@ -525,7 +542,15 @@ min-width: 50px;
 background-color: #fff;
 color: #6b5dff;
 
+border-radius: 10px !important;
 
+
+
+}
+
+.card-book i{
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .card-book:hover{
@@ -569,6 +594,7 @@ height: 100px;
 
 div.friends-row{
     align-items: center;
+
 }
 
 div.list-amigos{

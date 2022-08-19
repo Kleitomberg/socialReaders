@@ -8,17 +8,23 @@
 
     <div class="col-md-3 sidebar mt-3 p-2 ms-2">
 
+    <a href="/{{app.user.nome}}">
         <div class="info-user-bar">
+
         {% if app.user.imageprofile %}
         <img class="img-fluid profile " src="uploads/imagesprofile/{{app.user.imageprofile}}" alt="logo"></a>
         {%else%}
         <img class="img-fluid profile " src="assets/images/noneuser.png" alt="logo"></a>
-           {%endif%} <span class="text-light fw-semibold">
+           {%endif%}
+          <a class="text-decoration-none" href="/{{app.user.nome}}">
+           <span class="text-light fw-semibold">
              {{app.user.nome}}
 
              </span>
-        </div>
+             </a>
 
+        </div>
+ </a>
         <div class="menu mt-3 mb-5">
 
             <ul class="lista-menu">
@@ -73,17 +79,22 @@
 
                 <div class="autor mb-2  ">
                     <div class="info-user-post">
-                        <img class="img-fluid profile-post" src="assets/images/profile.png" alt="perfil"></a>
+                    {%if p.usuario.imageprofile%}
+                             <img class="img-fluid profile-post" src="uploads/imagesprofile/{{p.usuario.imageprofile}}" alt="">
+                {% else %}
+                        <img class="img-fluid profile-post" src="assets/images/noneuser.png" alt="perfil"></a>
+                           {%endif%}
                         <span class="text-dark fw-semibold"> {{p.usuario}}</span>
+
 
                     </div>
                 </div>
 
-                <div class="publicacao card p-3 ">
+                <div class="publicacao card p-3 mb-2">
                     <div> {{p.conteudo}}</div>
 
                 </div>
-                <!-- <span>Criado em: {{ p.criadoEm | date('d-m-y') }}</span>-->
+                <span class="">{{ p.criadoEm | date('d-m-y h:m:s', "America/Sao_paulo") }}</span>
 
             </div>
             {%endfor%}

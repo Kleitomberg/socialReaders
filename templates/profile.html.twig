@@ -26,19 +26,29 @@
         <div class="d-flex info mt-3">
 
 
-            <div class="card card-book">
-                <i class="fa-brands fa-readme"></i>
-                <span>100</span>
+            <div title="Posts" class="card card-book p-2 ">
+
+
+                <i class="fa-brands fa-readme mb-2"></i>
+
+                <p>{{myposts | length}}</p>
+
+
+
             </div>
 
-            <div class="card card-book">
-                <i class="fa-solid fa-book"></i>
-                <span>100</span>
+            <div title="Livros" class="card card-book p-2">
+                <i class="fa-solid fa-book mb-2"></i>
+                <p>100</p>
             </div>
-            <div class="card card-book">
-                <i class="fa-solid fa-user-group"></i>
-                <span>100</span>
+
+            <a title="Amigos" class="text-decoration-none" href="{{path('app_amigos')}}">
+            <div class="card card-book p-2">
+                <i class="fa-solid fa-user-group mb-2"></i>
+
+                <p>{{myfriends | length}}</p>
             </div>
+            </a>
 
         </div>
 
