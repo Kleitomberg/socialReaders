@@ -11,6 +11,12 @@ use App\Repository\UserRepository;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\ImageUpload;
+
+
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class UserController extends AbstractController{
 
@@ -19,7 +25,7 @@ class UserController extends AbstractController{
          * @Route("/criarUser", name="app_cadastro")
          */
 
-    public function criarUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils){
+    public function criarUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils, ImageUpload $imageUpload){
 
         if ( isset( $_POST["cadastrar"] )) {
 
@@ -67,18 +73,60 @@ class UserController extends AbstractController{
          * @Route("/editarUser", name="app_useredit")
          */
 
-    public function editUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils, EntityManagerInterface $em)
+    public function editUser(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, AuthenticationUtils $authenticationUtils, EntityManagerInterface $em,SluggerInterface $slugger, ImageUpload $imageUpload)
     {
 
         if(isset($_POST['editarusuario'])){
 
+
+
             $username = $_POST['nome'];
             $email = $_POST['email'];
+            $foto = $_FILES['imageprofile'] ['name'];
+            $ffoto = $_FILES['imageprofile'];
 
+            dump($ffoto);
+            dump($foto);
 
             $useronline = $this->getUser()->getUserIdentifier();
 
             $myuser = $userRepository->findOneBy(array('email' => $useronline));
+
+
+
+                if($foto){
+
+                    $ext = explode('.', $foto);// get the extension of the file
+                    $tamanho = count($ext);
+                    dump($ext[$tamanho-1]);
+                    $newname = $username.$ext[0]."profile.".$ext[$tamanho-1];
+
+                    $g =  $this->getParameter('images_directory');
+                    $target = $g.$newname;
+
+                    dump($g);
+                    dump($target);
+                    move_uploaded_file( $_FILES['imageprofile']['tmp_name'], $target);
+                    //move_uploaded_file($foto, $target);
+
+
+
+
+
+                    //$fotof = File($foto);
+                   // $fotoFileName = $imageUpload->upload($foto);
+                    $myuser->setImageprofile($newname);
+
+                }
+
+
+
+
+
+
+            dump($foto);
+
+
             $myuser->setNome($username);
             $myuser->setEmail($email);
             $em->flush();
@@ -92,4 +140,9 @@ class UserController extends AbstractController{
 
         return $this->render("login/useredit.html.twig");
     }
+
+                public function getTargetDirectory()
+                {
+                    return $this->targetDirectory;
+                }
 }

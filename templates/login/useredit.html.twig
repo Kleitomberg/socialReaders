@@ -8,11 +8,15 @@
 
 
 <div class="fomr-cads ">
-    <form name="editar" class="" action="{{path('app_useredit')}}" method="post">
+    <form name="editar" class="" action="{{path('app_useredit')}}" method="post" enctype="multipart/form-data">
 
 
 
         <h1 class="text-center maincolor mb-5 "> Editar Perfil</h1>
+
+        <div>
+            <input accept="image/*" type="file" name="imageprofile" id="">
+        </div>
 
         <div class="text-center mb-3 input-icons">
         <i class="fa-solid fa-user icone"></i>

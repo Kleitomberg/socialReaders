@@ -9,8 +9,11 @@
     <div class="col-md-3 sidebar mt-3 p-2 ms-2">
 
         <div class="info-user-bar">
-            <img class="img-fluid profile " src="assets/images/profile.png" alt="logo"></a>
-            <span class="text-light fw-semibold">
+        {% if app.user.imageprofile %}
+        <img class="img-fluid profile " src="uploads/imagesprofile/{{app.user.imageprofile}}" alt="logo"></a>
+        {%else%}
+        <img class="img-fluid profile " src="assets/images/noneuser.png" alt="logo"></a>
+           {%endif%} <span class="text-light fw-semibold">
              Kleitomberg
 
              </span>

@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -37,6 +39,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToMany(targetEntity: Amigos::class, mappedBy: 'id_solicitante')]
     private Collection $amigos;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
+     */
+    private ?string $imageprofile = null;
 
     public function __construct()
     {
@@ -200,6 +209,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->amigos->removeElement($amigo)) {
             $amigo->removeIdSolicitante($this);
         }
+
+        return $this;
+    }
+
+    public function getImageprofile(): ?string
+    {
+        return $this->imageprofile;
+    }
+
+    public function setImageprofile(?string $imageprofile): self
+    {
+        $this->imageprofile = $imageprofile;
 
         return $this;
     }

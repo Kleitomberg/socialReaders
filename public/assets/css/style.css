@@ -36,11 +36,15 @@ img.logo {
 img.profile {
     width: 55px;
     border-radius: 50%;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 img.user-profile-picture{
     width: 100px;
     border-radius: 50%;
+    min-width: 120px;
+    min-height: 120px;
 }
 
 

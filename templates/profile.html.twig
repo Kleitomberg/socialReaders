@@ -14,7 +14,11 @@
         {% if app.user %}
 
         <div class="text-center">
-            <img class="img-fluid user-profile-picture" src="assets/images/profile.png" alt="">
+        {% if app.user.imageprofile%}
+            <img class="img-fluid user-profile-picture" src="uploads/imagesprofile/{{app.user.imageprofile}}" alt="">
+        {% else %}
+        <img class="img-fluid user-profile-picture" src="assets/images/profile.png" alt="">
+        {%endif%}
             <h2>{{app.user.nome}}</h2>
             <span class="text-center">{{app.user.email}}</span>
         </div>
