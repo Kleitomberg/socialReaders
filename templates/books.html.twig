@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %} SocialReaders | Books{% endblock %}
+{% block body %}
+
+
+
+<div class="container">
+    <h1>Livros</h1>
+    <form method="post" id="fbooks" action="" class="d-flex form-friends justfy-content-center"
+            role="search" name="searchbooks">
+            <div class="inp-bt d-flex">
+                <input id="bookseacr" class="form-control search-amigos" name="books" type="search" placeholder="Buscar Livros"
+                    aria-label="Search">
+                <button onclick="" type="submit" class="btn btn-primary btn-buscar-friend"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
+
+        <div id="booksca">
+            <p> <span id="quantidade"></span> livros encontrados para <span id="pesquisa"></span> </p>
+
+
+            <div class="books" id="mybooks">
+
+            </div>
+        </div>
+
+
+        <h1> My Books</h1>
+
+        <div>
+
+
+
+        </div>
+
+
+</div>
+
+{% endblock %}
+
+{% block apibooks %}
+<script src="assets/js/books.js"></script>
+<!--
+<script src="https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=lista"></script>
+
+
+-->
+
+{%endblock%}
