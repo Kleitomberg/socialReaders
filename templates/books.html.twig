@@ -4,32 +4,39 @@
 {% block title %} SocialReaders | Books{% endblock %}
 {% block body %}
 
+{% if books %}
+    <p>tem books</p>
+{%endif%}
 
 
 <div class="container">
-    <h1>Livros</h1>
+    <h1 class="mt-5">Livros</h1>
     <form method="post" id="fbooks" action="" class="d-flex form-friends justfy-content-center"
             role="search" name="searchbooks">
             <div class="inp-bt d-flex">
-                <input id="bookseacr" class="form-control search-amigos" name="books" type="search" placeholder="Buscar Livros"
+                <input required id="bookseacr" class="form-control search-amigos" name="books" type="search" placeholder="Buscar Livros"
                     aria-label="Search">
-                <button onclick="" type="submit" class="btn btn-primary btn-buscar-friend"><i
+                <button id="btnbooks" onclick="" type="submit" class="btn btn-primary btn-buscar-friend"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
 
         <div id="booksca">
-            <p> <span id="quantidade"></span> livros encontrados para <span id="pesquisa"></span> </p>
+            <p id="legenda-busca" class="d-none mt-3 mb-3"> <span id="quantidade"></span> livros encontrados para <span id="pesquisa"></span> </p>
 
 
-            <div class="books" id="mybooks">
+            <div class="books row" id="mybooks">
 
+            </div>
+            <div style="opacity: 0;" id="loading" class="carregando mt-5 mb-5 text-center d-none">
+                    <img class="imgloading text-center img-fluid" src="assets/images/loading.gif" alt="">
             </div>
         </div>
 
 
-        <h1> My Books</h1>
+        <h1 class="mt-5"> My Books</h1>
 
+        <p>Nenhum livro</p>
         <div>
 
 

@@ -637,3 +637,39 @@ form.form-btns-solicita button{
 form.form-btns-solicita {
     gap: 5px;
 }
+
+div.card-books{
+
+    width: 300px;
+    align-items: center;
+    padding-top: 16px;
+
+
+
+}
+
+div.body-book h5{
+    font-size: 16px;
+
+}
+
+a.booklink{
+    text-decoration: none !important;
+    margin-bottom: 15px;
+}
+
+div#mybooks{
+    gap: 15px;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+div#loading img{
+
+    background-blend-mode: multiply;
+    width: 30% !important;
+    height: 30%x;
+    object-fit: fill;
+    transition: ease-in-out;
+
+}

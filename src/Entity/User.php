@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -46,6 +47,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\File(mimeTypes={ "image/png", "image/jpeg", "image/jpg" })
      */
     private ?string $imageprofile = null;
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $favoritesBooks = [];
 
     public function __construct()
     {
@@ -221,6 +225,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setImageprofile(?string $imageprofile): self
     {
         $this->imageprofile = $imageprofile;
+
+        return $this;
+    }
+
+    public function getFavoritesBooks(): array
+    {
+        return $this->favoritesBooks;
+    }
+
+    public function setFavoritesBooks(?array $favoritesBooks): self
+    {
+        $this->favoritesBooks = $favoritesBooks;
 
         return $this;
     }

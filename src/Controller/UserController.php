@@ -85,8 +85,7 @@ class UserController extends AbstractController{
             $foto = $_FILES['imageprofile'] ['name'];
             $ffoto = $_FILES['imageprofile'];
 
-            dump($ffoto);
-            dump($foto);
+
 
             $useronline = $this->getUser()->getUserIdentifier();
 
