@@ -48,8 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?string $imageprofile = null;
 
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    #[ORM\Column(nullable: true)]
     private array $favoritesBooks = [];
+
 
     public function __construct()
     {
