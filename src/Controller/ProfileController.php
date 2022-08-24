@@ -23,6 +23,8 @@ class ProfileController extends AbstractController{
             array('usuario'=>$solicitante)
         );
 
+        $myFbooks = $solicitante->getFavoritesBooks();
+
         dump($meusposts);
 
         $id_solicitante_strng = (string)$id_solicitante;
@@ -92,6 +94,7 @@ class ProfileController extends AbstractController{
             "paginetitle"=>"profile",
             "myfriends" => $arrayAmigos,
             'myposts'=>$meusposts,
+            'myFbooks'=>$myFbooks,
         ]);
     }
 

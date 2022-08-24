@@ -37,10 +37,12 @@
 
             </div>
 
+            <a class="text-decoration-none" href="{{path('app_books')}}">
             <div title="Livros" class="card card-book p-2">
                 <i class="fa-solid fa-book mb-2"></i>
-                <p>100</p>
+                <p>{{myFbooks | length}}</p>
             </div>
+        </a>
 
             <a title="Amigos" class="text-decoration-none" href="{{path('app_amigos')}}">
             <div class="card card-book p-2">

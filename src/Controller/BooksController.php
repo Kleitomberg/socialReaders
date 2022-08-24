@@ -16,26 +16,47 @@ class BooksController  extends AbstractController{
     /**
      * @Route("/serachbooks", name="app_books")
      */
-    public function buscarlivros(GetBooks $getBooks){
+    public function buscarlivros(GetBooks $getBooks, UserRepository $userRepository){
 
           /* @var $getBookResponse GetBookResponse */
 
+          $useronline = $this->getUser()->getUserIdentifier();
+
+          $myuser = $userRepository->findOneBy(array('email' => $useronline));
+
+          $mybooksId = $myuser->getFavoritesBooks();
+
+          $arraylivros = array();
+
+          foreach ($mybooksId as &$bookid) {
+            $url = "https://www.googleapis.com/books/v1/volumes/".$bookid;
+            $jsonresponse = file_get_contents($url);
+            $data = json_decode($jsonresponse);
+
+            array_push($arraylivros, $data);
+          }
+
+
+
+
           if(isset($_POST['books']) || isset($_POST['searchbooks'])){
             $titulo =$_POST['books'];
-            dump($titulo);
+            //dump($titulo);
             $getBookResponse = $getBooks($titulo);
             $books = $getBookResponse->getBook();
 
 
             return $this->render("books.html.twig",[
-                'books'=>$books
+                'books'=>$books,
+                'livrosfavoristo'=>$arraylivros
             ]);
 
           }
 
 
         return $this->render("books.html.twig",[
-            'books'=>""
+            'books'=>"",
+            'livrosfavoristo'=>$arraylivros
         ]);
 
     }
@@ -105,14 +126,14 @@ class BooksController  extends AbstractController{
         $myuser = $userRepository->findOneBy(array('email' => $useronline));
 
         $myfavs = $myuser->getFavoritesBooks();
-        dump($myfavs);
+      //  dump($myfavs);
 
         $livroID = array();
 
         if (in_array($id, $myfavs)) {
-            dump("Já existe!");
+            //dump("Já existe!");
             $key = array_search($id, $myfavs);
-            dump($key);
+            //dump($key);
             unset($myfavs[$key]);
             //$myfavs = $myfavs;
         }else{

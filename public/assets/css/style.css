@@ -35,6 +35,7 @@ img.logo {
 
 img.profile {
     width: 55px;
+    height: 55px;
     border-radius: 50%;
     min-width: 50px;
     min-height: 50px;
@@ -63,6 +64,7 @@ img.user-profile-picture{
 
 img.profile-post {
     width: 45px;
+    height: 45px;
     border-radius: 50%;
     min-width: 50px;
     min-height: 50px;
@@ -711,4 +713,9 @@ button.favorite-book:hover{
 div.description{
 
     padding-left: 15px !important;
+}
+
+
+div.card-favorite{
+    background-color: transparent;
 }

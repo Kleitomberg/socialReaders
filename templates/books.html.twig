@@ -5,44 +5,71 @@
 {% block body %}
 
 {% if books %}
-    <p>tem books</p>
+<p>tem books</p>
 {%endif%}
 
 
 <div class="container">
     <h1 class="mt-5">Livros</h1>
-    <form method="post" id="fbooks" action="" class="d-flex form-friends justfy-content-center"
-            role="search" name="searchbooks">
-            <div class="inp-bt d-flex">
-                <input required id="bookseacr" class="form-control search-amigos" name="books" type="search" placeholder="Buscar Livros"
-                    aria-label="Search">
-                <button id="btnbooks" onclick="" type="submit" class="btn btn-primary btn-buscar-friend"><i
-                        class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </form>
-
-
-        <div id="booksca">
-            <p id="legenda-busca" class="d-none mt-3 mb-3"> <span id="quantidade"></span> livros encontrados para <span id="pesquisa"></span> </p>
-
-
-            <div class="books row" id="mybooks">
-
-            </div>
-            <div style="opacity: 0;" id="loading" class="carregando mt-5 mb-5 text-center d-none">
-                    <img class="imgloading text-center img-fluid" src="assets/images/loading.gif" alt="">
-            </div>
+    <form method="post" id="fbooks" action="" class="d-flex form-friends justfy-content-center" role="search"
+        name="searchbooks">
+        <div class="inp-bt d-flex">
+            <input required id="bookseacr" class="form-control search-amigos" name="books" type="search"
+                placeholder="Buscar Livros" aria-label="Search">
+            <button id="btnbooks" onclick="" type="submit" class="btn btn-primary btn-buscar-friend"><i
+                    class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+    </form>
 
 
-        <h1 class="mt-5"> My Books</h1>
+    <div id="booksca">
+        <p id="legenda-busca" class="d-none mt-3 mb-3"> <span id="quantidade"></span> livros encontrados para <span
+                id="pesquisa"></span> </p>
 
-        <p>Nenhum livro</p>
-        <div>
 
-
+        <div class="books row" id="mybooks">
 
         </div>
+        <div style="opacity: 0;" id="loading" class="carregando mt-5 mb-5 text-center d-none">
+            <img class="imgloading text-center img-fluid" src="assets/images/loading.gif" alt="">
+        </div>
+    </div>
+
+
+    <h1 class="mt-5 mb-5"> My Books</h1>
+
+    {% if livrosfavoristo %}
+
+    {% for livro in livrosfavoristo%}
+    <a class="text-decoration-none" href="/book/{{livro.id}}">
+        <div class="card card-favorite">
+            <div class="card-body body-favorite">
+                <div class="row">
+                    <div class="col-md-auto">
+                <img class="img-fluid img-card-top" src="{{livro.volumeInfo.imageLinks.thumbnail}}" alt="">
+            </div>
+            <div class="col-md-9">
+                <h5> {{livro.volumeInfo.title}}</h5>
+            </div>
+            </div>
+
+            </div>
+
+        </div>
+    </a>
+
+
+    {%endfor%}
+
+    {%else%}
+    <p>Nenhum Livro Adidionado Aos Favoritos</p>
+    {%endif%}
+
+    <div>
+
+
+
+    </div>
 
 
 </div>
