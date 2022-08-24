@@ -87,7 +87,7 @@ function lista(response) {
         // in production code, item.text should have the HTML entities escaped.
         const bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.thumbnail : imgnone ;
         document.getElementById("mybooks").innerHTML +=
-       "<a class='booklink col-md-auto' href='"+ item.selfLink+ "'>"+
+       " <a class='booklink col-md-auto' href='/book/"+item.id+"'>"+
         "<div class='card card-books'>"+
         " <img style='width:150px' src='"+
         bookImg+

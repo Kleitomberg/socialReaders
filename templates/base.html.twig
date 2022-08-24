@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+    <title>
         {% block title %}
 
 
         {% endblock %}
     </title>
-    <link rel="icon" href="assets/images/icon.png">
+
+    <link rel="icon" href="/assets/images/icon.png">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
 
 
@@ -24,8 +26,8 @@
     block stylesheets %}
     {% endblock %}{% block javascripts %}{% endblock %}
 
-    <link rel="stylesheet" href="assets/css/style.css">
-     <link rel="stylesheet" href="assets/css/responsividade.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+     <link rel="stylesheet" href="/assets/css/responsividade.css">
     <script src="https://kit.fontawesome.com/1ebab068c8.js" crossorigin="anonymous"></script>
 </head>
 
@@ -36,7 +38,7 @@
     <nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between" style='background-color:#6b5dff'>
 
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand " href="/"> <img class="img-fluid logo " src="assets/images/logo.png" alt="logo"></a>
+            <a class="navbar-brand " href="/"> <img class="img-fluid logo " src="/assets/images/logo.png" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -62,7 +64,7 @@
                             aria-expanded="false">
                              {% if app.user %}
                              {% if app.user.imageprofile%}
-                              <img class="img-fluid profile" src="uploads/imagesprofile/{{app.user.imageprofile}}" alt="">
+                              <img class="img-fluid profile" src="/uploads/imagesprofile/{{app.user.imageprofile}}" alt="">
                              {% else %}
                             <img class="img-fluid profile " src="assets/images/noneuser.png" alt="profile"></a>
                              {% endif %}
@@ -96,8 +98,6 @@
     {% block indexJS %}{% endblock %}
 
     {% block apibooks %}
-
-
 
     {%endblock%}
 

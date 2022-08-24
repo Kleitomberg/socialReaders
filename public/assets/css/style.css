@@ -674,3 +674,41 @@ div#loading img{
     transition: ease-in-out;
 
 }
+
+.thumb-book{
+    width: 15vw;
+
+}
+
+.autors-book{
+    margin: 0;
+    padding: 0;
+}
+
+.autors-book li{
+    margin: 0;
+    padding: 0;
+}
+
+
+button.favorite-book{
+    width: 100%;
+    margin-top: 15px;
+    margin: -56px;
+    height: 40px;
+    font-size: 18px;
+}
+
+button.favorite-book:hover{
+    background-color: rgb(255, 119, 0);
+    border: none;
+}
+.thumb-btn{
+
+    text-align: center;
+}
+
+div.description{
+
+    padding-left: 15px !important;
+}

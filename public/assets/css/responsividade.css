@@ -48,4 +48,25 @@
         justify-content: center;
     }
 
+
+p.description-book{
+    text-align: center;
+}
+div.description{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+
+    padding-left: 15px !important;
+}
+img.thumb-book{
+    width: 65vw;
+    padding: 20px;
+
+}
+
+.book-title{
+    text-align: center;
+}
+
 }

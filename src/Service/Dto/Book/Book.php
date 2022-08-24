@@ -21,14 +21,14 @@ class Book{
     private $description;
 
     /**
-     * @var $id integer
+     * @var $id string
      */
     private $id;
 
      /**
      * @var $autors string
      */
-    private $autors;
+    private $autors = array();
 
       /**
      * @var $thumb string
@@ -37,17 +37,17 @@ class Book{
 
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param int $string
      */
-    public function setId(int $id): void
+    public function setId(string $id): void
     {
         $this->id = $id;
     }
@@ -90,12 +90,12 @@ class Book{
     }
 //autors
 
-public function getAutors(): ?string
+public function getAutors(): ?array
 {
     return $this->autors;
 }
 
-public function setAutors(string $autors): void
+public function setAutors(array $autors): void
 {
     $this->autors = $autors;
 }

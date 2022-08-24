@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %} SocialReaders | Books{% endblock %}
+
+{% block body %}
+
+{% if livro %}
+
+<div class="container mt-5">
+    <h3 class="mb-3 book-title">{{livro.titulo}}</h3>
+    <div class="row">
+        <div class="col-md-auto">
+
+            <div class="thumb-btn">
+    <img class="thumb-book" src="{{livro.thumb}}" alt="">
+
+    <form action="" method="post">
+        <input type="hidden" name="livro-id" id="livro_id" value="{{livro.id}}">
+    <button type="submit" class="btn btn-warning btn-sm favorite-book"> <i class="fa-solid fa-heart"></i> Favoritar</button>
+</form>
+</div>
+
+
+</div>
+
+    <div class="col-md-9 description">
+    <p class="description-book">{{livro.description}}</p>
+
+    {% if livro.autors%}
+    <p class="mt-3"> <strong> Autores</strong></p>
+    <ul class="autors-book">
+        {% for a in livro.autors%}
+        <li>{{a}}</li>
+        {%endfor%}
+    </ul>
+    {%endif%}
+</div>
+</div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
+
