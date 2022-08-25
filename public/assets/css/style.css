@@ -730,3 +730,22 @@ div.mensagens-div{
 div.linha-msgs{
 height: 50vh;
 }
+.linha_chat_msg:hover{
+    background-color: #6b5dff;
+    color: #f8f8f8 !important;
+    border-radius: 16px;
+}
+
+.linha_chat_msg{
+    width: 300px;
+    height: 60px;
+    padding: 8px;
+
+}
+
+div.row.mb-3.linha_chat_msg.active{
+    background-color: #6b5dff;
+    color: #f8f8f8;
+    border-radius: 16px;
+}
+

@@ -8,44 +8,55 @@
     <div class="row linha-msgs">
         <div class="col-md-3">
             {% for conversa in conversas %}
-            <a class="text-decoration-none" href="{{path('mensagens.lista', { id:conversa.conversaId})}}">
-                <div class="row">
+            <a class="text-decoration-none mb-3 link_msg" href="{{path('mensagens.lista', { id:conversa.conversaId})}}">
+                <div class="row mb-3 linha_chat_msg {%if conversa.conversaId == id%} active {%endif%} ">
                     <div class="col-md-3">
                         <img class="img-fluid profile-post" src="/uploads/imagesprofile/{{conversa.imageprofile}}"
                             alt="logo">
 
+                    </div>
+                    <div class="col-md-9 ">
+                        <h5>{{conversa.nome}}</h5>
+                        <p style="opacity: 0.6;" class="text-dark">{{conversa.conteudo}}...</p>
+
+                    </div>
+
+                </div>
+            </a>
+            {%endfor%}
+            <br>
         </div>
-        <div class="col-md-auto ">
-            <h5>{{conversa.nome}}</h5>
-            <p style="opacity: 0.6;" class="text-dark">{{conversa.conteudo}}...</p>
+        <div class="col-md-9 bg-light p-3 mensagens-div">
+            {%if mensagens %}
+            {%for m in mensagens %}
+            <div class="bg-info mb-2 mt-2">
+                {{m.conteudo}}
+            </div>
+            {%endfor%}
+
+
+            {%else%}
+
+            {%endif%}
+            {%if id%}
+            {%if aconversa %}
+
+            {%endif%}
+            <form id="form_send_mensagem" name="mensagem-content" action="" method="post">
+                <input name="conteudo" type="text" placeholder="Digite sua Mensagem" required>
+                <input type="hidden" name="" value="{{id}}">
+                <button class="btn btn-info">Enviar</button>
+            </form>
+
+            {%else%}
+            <P>Escolher uma conversa            </P>
+        {%endif%}
+
+
 
         </div>
 
     </div>
-    </a>
-    {%endfor%}
-</div>
-<div class="col-md-9 bg-light p-3 mensagens-div">
-    {%if mensagens %}
-    {%for m in mensagens %}
-    <div class="bg-info mb-2 mt-2">
-        {{m.conteudo}}
-    </div>
-    {%endfor%}
-    {%else%}
-    nada
-    {%endif%}
-    <form id="form_send_mensagem" name="mensagem-content" action="" method="post">
-        <input name="conteudo" type="text" placeholder="Digite sua Mensagem" required>
-        <input type="hidden" name="">
-        <button  class="btn btn-info">Enviar</button>
-    </form>
-
-
-
-</div>
-
-</div>
 
 </div>
 
@@ -55,18 +66,18 @@
 <script>
 
 
-    window.onload = function(e){
+    window.onload = function (e) {
 
-    const url = location.href.split('/');
-    const idConversa = url[url.length - 1]
-    console.log(idConversa);
+        const url = location.href.split('/');
+        const idConversa = url[url.length - 1]
+        console.log(idConversa);
 
-    const formularioMsg = document.querySelector("#form_send_mensagem")
-    console.log(formularioMsg.getAttribute('action'));
-    const antes = "/mensagens/enviar/"
-    formularioMsg.setAttribute("action",antes+idConversa)
-    const aaa = formularioMsg.setAttribute("action",antes+idConversa)
-    console.log(aaa)
+        const formularioMsg = document.querySelector("#form_send_mensagem")
+        console.log(formularioMsg.getAttribute('action'));
+        const antes = "/mensagens/enviar/"
+        formularioMsg.setAttribute("action", antes + idConversa)
+        const aaa = formularioMsg.setAttribute("action", antes + idConversa)
+        console.log(aaa)
 
     }
 </script>

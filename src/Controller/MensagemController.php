@@ -81,10 +81,22 @@ class MensagemController extends AbstractController{
 
                 $mensagem->getUsuario()->getId() === $myId ? true : false);
         }, $mymensagens);
+        $cinversaId = $request->get("id");
 
+
+        $aconnversa = $this->conversaRepository->findOneBy(
+            array("id"=>$cinversaId)
+        );
+
+
+
+        dump($aconnversa);
         return $this->render("chat/conversa.twig",[
             'mensagens'=>$mymensagens,
             "conversas"=>$minhasConversas,
+            'id'=>$cinversaId,
+            "aconversa"=>$aconnversa
+
         ]);
 
     }
@@ -124,8 +136,15 @@ class MensagemController extends AbstractController{
         }
 
         $cinversaId = $request->get("id");
+        $aconnversa = $this->conversaRepository->findOneBy(
+            array("id"=>$cinversaId)
+        );
 
-        return $this->redirectToRoute("mensagens.lista",["id"=>$cinversaId]);
+        return $this->redirectToRoute("mensagens.lista",[
+
+            "id"=>$cinversaId,
+            "aconversa"=>$aconnversa
+        ]);
         }
 
     }
