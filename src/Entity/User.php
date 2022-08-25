@@ -29,6 +29,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
+
+
     /**
      * @var string The hashed password
      */
@@ -52,10 +54,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private array $favoritesBooks = [];
 
 
+
+    #[ORM\OneToMany(targetEntity: Participante::class, mappedBy: 'usuario')]
+    private $participantes;
+
+
+    #[ORM\OneToMany(targetEntity: Mensagem::class, mappedBy: 'usuario')]
+    private $mensagens;
+
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->amigos = new ArrayCollection();
+        $this->participantes = new ArrayCollection();
+        $this->mensagens = new ArrayCollection();
     }
 
     public function __toString()
@@ -242,6 +255,67 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @return Collection|Participante[]
+     */
+    public function getParticipantes(): Collection
+    {
+        return $this->participantes;
+    }
+
+    public function addParticipant(Participante $participante): self
+    {
+        if (!$this->participantes->contains($participante)) {
+            $this->participantes[] = $participante;
+            $participante->setUsuario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Participante $participante): self
+    {
+        if ($this->participantes->contains($participante)) {
+            $this->participantes->removeElement($participante);
+            // set the owning side to null (unless already changed)
+            if ($participante->getUsuario() === $this) {
+                $participante->setUsuario(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Mensagem $mensagem): self
+    {
+        if (!$this->mensagens->contains($mensagem)) {
+            $this->mensagens[] = $mensagem;
+            $mensagem->setUsuario($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Mensagem $mensagem): self
+    {
+        if ($this->mensagens->contains($mensagem)) {
+            $this->mensagens->removeElement($mensagem);
+            // set the owning side to null (unless already changed)
+            if ($mensagem->getUsuario() === $this) {
+                $mensagem->setUsuario(null);
+            }
+        }
+
+        return $this;
+    }
 
 
 

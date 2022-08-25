@@ -15,7 +15,7 @@ class ProfileController extends AbstractController{
     public function profilePage($username,PostRepository $postRepository, SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository, ){
 
         $user = $this->getUser()->getUserIdentifier();
-        dump($user);
+        //dump($user);
         $solicitante = $userRepository->findOneBy(array('email' => $user));
         $id_solicitante = $solicitante->getId();
 
@@ -25,12 +25,12 @@ class ProfileController extends AbstractController{
 
         $myFbooks = $solicitante->getFavoritesBooks();
 
-        dump($meusposts);
+       // dump($meusposts);
 
         $id_solicitante_strng = (string)$id_solicitante;
 
 
-            dump($id_solicitante_strng);
+            //dump($id_solicitante_strng);
 
             $solicitacoes = $solicitacaoAmizadeRepository->findBy(
 
@@ -88,7 +88,7 @@ class ProfileController extends AbstractController{
             array_push($arrayAmigos, $af[0]);
 
         }
-        dump($arrayAmigos);
+       // dump($arrayAmigos);
 
         return $this->render('profile.html.twig',[
             "paginetitle"=>"profile",

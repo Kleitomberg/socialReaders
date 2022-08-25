@@ -25,14 +25,14 @@ class AmigosController extends AbstractController{
     public function listaramigos(SolicitacaoAmizadeRepository $solicitacaoAmizadeRepository, UserRepository $userRepository){
 
         $user = $this->getUser()->getUserIdentifier();
-        dump($user);
+       // dump($user);
         $solicitante = $userRepository->findOneBy(array('email' => $user));
         $id_solicitante = $solicitante->getId();
 
         $id_solicitante_strng = (string)$id_solicitante;
 
 
-            dump($id_solicitante_strng);
+           // dump($id_solicitante_strng);
 
             $solicitacoes = $solicitacaoAmizadeRepository->findBy(
 
@@ -90,7 +90,7 @@ class AmigosController extends AbstractController{
             array_push($arrayAmigos, $af[0]);
 
         }
-        dump($arrayAmigos);
+       // dump($arrayAmigos);
 
         //$arrayobjeto = $arrayFriends;
         //dump($arrayobjeto);
@@ -103,11 +103,11 @@ if($solicitacoes){
         //dump($solicitacoes);
         $solicitantee=[];
         foreach ($solicitacoes as &$idsol) {
-            dump($idsol->getIdSolicitante());
+            //dump($idsol->getIdSolicitante());
              array_push($solicitantee, $idsol->getIdSolicitante());
 
          }
-         dump($solicitantee);
+       //  dump($solicitantee);
 
        // dump($usersolicitante);
 
@@ -148,7 +148,7 @@ if($solicitacoes){
         {
             $amigobusca = $_POST['friends'];
 
-            dump($amigobusca);
+           // dump($amigobusca);
 
             $serachfriend = $userRepository->findBy(
 
@@ -157,7 +157,7 @@ if($solicitacoes){
                 )
 
             );
-            dump($serachfriend);
+            //dump($serachfriend);
 
 
             return $this->render("amigos/listar.html.twig",[
@@ -186,13 +186,13 @@ if($solicitacoes){
 
 
             $data_solicitacao =date('y-m-d h:i:s');
-            dump($data_solicitacao);
+           // dump($data_solicitacao);
             $data_confirmacao =date('d/m/Y');
             $situacao = 0;
             $solicitante = $_POST["meuid"];
-            dump($solicitante);
+            //dump($solicitante);
             $solicitado =$_POST["userid"];
-            dump($solicitado);
+            //dump($solicitado);
             $friend = $userRepository->findOneBy(array(
                 'id' => $solicitado
                 )
@@ -210,7 +210,7 @@ if($solicitacoes){
             $amizade->setSituacao($situacao);
             $amizade->setIdSolicitante($eu);
             $amizade->setIdSolicitado($friend);
-            dump($data_solicitacao);
+           // dump($data_solicitacao);
             //$amizade->setDataSolicitacao($data_solicitacao);
             //$amizade->setDataSolicitacao($newformat, bool $a= false);
 
@@ -281,7 +281,7 @@ if($solicitacoes){
 
                // $aSolicitacao = $solicitacaoAmizadeRepository->add($aSolicitacao);
 
-            dump($aSolicitacao);
+           // dump($aSolicitacao);
 
             return $this->redirectToRoute('app_amigos');
         }else if(isset($_POST['rejeitar'])){

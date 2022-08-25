@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220823185556 extends AbstractMigration
+final class Version20220825132210 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -22,10 +22,13 @@ final class Version20220823185556 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE amigos (id INT AUTO_INCREMENT NOT NULL, status TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE amigos_user (amigos_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_12F6FBA516C8F13B (amigos_id), INDEX IDX_12F6FBA5A76ED395 (user_id), PRIMARY KEY(amigos_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE conversa (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE mensagem (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE participante (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE post (id INT AUTO_INCREMENT NOT NULL, usuario_id INT DEFAULT NULL, conteudo VARCHAR(255) NOT NULL, criado_em DATETIME NOT NULL, atualizado_em DATETIME NOT NULL, INDEX IDX_5A8A6C8DDB38439E (usuario_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE postagem (id INT AUTO_INCREMENT NOT NULL, usuario_id INT DEFAULT NULL, conteudo VARCHAR(255) NOT NULL, criado_em DATETIME NOT NULL, atualizado_em DATETIME NOT NULL, INDEX IDX_D0E38451DB38439E (usuario_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE solicitacao_amizade (id INT AUTO_INCREMENT NOT NULL, id_solicitante_id INT DEFAULT NULL, id_solicitado_id INT DEFAULT NULL, situacao TINYINT(1) NOT NULL, data_solicitacao DATETIME NOT NULL, data_confirmacao DATETIME NOT NULL, UNIQUE INDEX UNIQ_2E09F352310EB781 (id_solicitante_id), UNIQUE INDEX UNIQ_2E09F3527CAA5B5D (id_solicitado_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, nome VARCHAR(255) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, imageprofile VARCHAR(255) DEFAULT NULL, favorites_books LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, nome VARCHAR(255) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, imageprofile VARCHAR(255) DEFAULT NULL, favorites_books JSON DEFAULT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE usuario (id INT AUTO_INCREMENT NOT NULL, nome VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, senha VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE messenger_messages (id BIGINT AUTO_INCREMENT NOT NULL, body LONGTEXT NOT NULL, headers LONGTEXT NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at DATETIME NOT NULL, available_at DATETIME NOT NULL, delivered_at DATETIME DEFAULT NULL, INDEX IDX_75EA56E0FB7336F0 (queue_name), INDEX IDX_75EA56E0E3BD61CE (available_at), INDEX IDX_75EA56E016BA31DB (delivered_at), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE amigos_user ADD CONSTRAINT FK_12F6FBA516C8F13B FOREIGN KEY (amigos_id) REFERENCES amigos (id) ON DELETE CASCADE');
@@ -47,6 +50,9 @@ final class Version20220823185556 extends AbstractMigration
         $this->addSql('ALTER TABLE postagem DROP FOREIGN KEY FK_D0E38451DB38439E');
         $this->addSql('DROP TABLE amigos');
         $this->addSql('DROP TABLE amigos_user');
+        $this->addSql('DROP TABLE conversa');
+        $this->addSql('DROP TABLE mensagem');
+        $this->addSql('DROP TABLE participante');
         $this->addSql('DROP TABLE post');
         $this->addSql('DROP TABLE postagem');
         $this->addSql('DROP TABLE solicitacao_amizade');
