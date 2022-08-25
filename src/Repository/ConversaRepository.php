@@ -96,7 +96,7 @@ public function findConversationsByUser(int $userId)
     {
         $qb = $this->createQueryBuilder('c');
         $qb->
-            select('otherUser.nome', 'c.id as conversaId', 'lm.conteudo', 'lm.criadoEm')
+            select('otherUser.imageprofile','otherUser.nome', 'c.id as conversaId', 'lm.conteudo', 'lm.criadoEm')
             ->innerJoin('c.participantes', 'p', Join::WITH, $qb->expr()->neq('p.usuario', ':usuario'))
             ->innerJoin('c.participantes', 'me', Join::WITH, $qb->expr()->eq('me.usuario', ':usuario'))
             ->leftJoin('c.ultimaMensagem', 'lm')

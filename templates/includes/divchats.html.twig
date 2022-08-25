@@ -1,77 +1,49 @@
 <div id="modal-chats" class='modal-chats  rounded-2 hide'>
 
-    <div class="chaatss">
+	<div class="chaatss">
 
-        <div class="chats-header d-flex">
-            <h1>My chats</h1>
-            <div class="d-flex icones-modal-chats">
-                <i id="btn-minimize" class="fa-solid fa-minus" onclick="minimize()"></i>
-                <i id="btn-maxmize" class="fa-solid fa-compress d-none" onclick="maxmize()"></i>
-                <i id="btn-closer" class="ms-2 fa-solid fa-xmark" onclick="esconder()"></i>
-        </div>
-
-
-
-        </div>
-
-        <div class="chats-body">
-
-                <!-- card-chat-->
-            <div class="card card-chat bg-none ">
-                <div class="card-body bg-none">
-                    <div class="info-user-post bg-none">
-                        <div class="row row-chats">
-                            <div class="col-md-3">
-                        <img class="img-fluid profile-post" src="assets/images/profile.png"
-                            alt="logo"></a>
-
-                        </div>
-
-                        <div class="col-md-9">
-                        <span class="text-light fw-semibold"> Kleitomberg</span>
-                        <p class="message">ultima mensagem enviada...</p>
-                    </div>
-
-                    </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-                 <!-- card-chat-->
-                 <div class="card card-chat bg-none ">
-                    <div class="card-body bg-none">
-                        <div class="info-user-post bg-none">
-                            <img class="img-fluid profile-post" src="assets/images/profile.png"
-                                alt="logo"></a>
-                            <span class="text-light fw-semibold"> Kleitomberg</span>
-
-                        </div>
-
-                    </div>
-                </div>
+		<div class="chats-header d-flex">
+			<h1>My chats</h1>
+			<div class="d-flex icones-modal-chats">
+				<i id="btn-minimize" class="fa-solid fa-minus" onclick="minimize()"></i>
+				<i id="btn-maxmize" class="fa-solid fa-compress d-none" onclick="maxmize()"></i>
+				<i id="btn-closer" class="ms-2 fa-solid fa-xmark" onclick="esconder()"></i>
+			</div>
 
 
-                     <!-- card-chat-->
-            <div class="card card-chat bg-none ">
-                <div class="card-body bg-none">
-                    <div class="info-user-post bg-none">
-                        <img class="img-fluid profile-post" src="assets/images/profile.png"
-                            alt="logo"></a>
-                        <span class="text-light fw-semibold"> Kleitomberg</span>
+		</div>
 
-                    </div>
+		<div class="chats-body">
 
-                </div>
-            </div>
+            {% for conversa in conversas %}
+			<!-- card-chat-->
+
+			<div class="card card-chat bg-none ">
+				<div class="card-body bg-none">
+					<div class="info-user-post bg-none">
+						<div class="row row-chats">
+							<div class="col-md-3">
+								<img class="img-fluid profile-post" src="/uploads/imagesprofile/{{conversa.imageprofile}}" alt="logo"></a>
+
+						</div>
+
+						<div class="col-md-9">
+							<span class="text-light fw-semibold">
+								 {{conversa.nome}}</span>
+							<p class="message"> {{conversa.conteudo}}</p>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+            {%endfor%}
+
+		</div>
 
 
-        </div>
+	</div>
 
 
-    </div>
-
-
-
-</div>
+</div></div>
