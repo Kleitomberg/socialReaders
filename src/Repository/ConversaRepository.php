@@ -68,18 +68,18 @@ public function findConversationByParticipants(int $otherUserId, int $myId)
 {
     $qb = $this->createQueryBuilder('c');
     $qb
-        ->select($qb->expr()->count('p.conversation'))
-        ->innerJoin('c.participants', 'p')
+        ->select($qb->expr()->count('p.conversa'))
+        ->innerJoin('c.participantes', 'p')
         ->where(
             $qb->expr()->orX(
-                $qb->expr()->eq('p.user', ':me'),
-                $qb->expr()->eq('p.user', ':otherUser')
+                $qb->expr()->eq('p.usuario', ':me'),
+                $qb->expr()->eq('p.usuario', ':otherUser')
             )
         )
-        ->groupBy('p.conversation')
+        ->groupBy('p.conversa')
         ->having(
             $qb->expr()->eq(
-                $qb->expr()->count('p.conversation'),
+                $qb->expr()->count('p.conversa'),
                 2
             )
         )

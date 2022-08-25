@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use App\Repository\ConversaRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use SebastianBergmann\Environment\Console;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -63,22 +64,24 @@ class ConversaController extends AbstractController{
      */
     public function criarConversa(Request $request){
 
-        if(isset($_POST['chat'])){
+        if(isset($_POST['chat']) || isset($_POST['idusuario'])){
 
             $outrosParticipantesId=$_POST['idusuario'];
 
             $destinatario = $this->userRepository->find($outrosParticipantesId);
-
+            dump($destinatario);
+            //print_r($destinatario); die;
             //verifica se exite um destinatario
             if (is_null($destinatario)) {
                 throw new \Exception("Erro: Usuario não encontrado");
+                dump("VAZIO");
             }
 
             //verifica se o destinatario é igual ao remetente
             $user = $this->getUser()->getUserIdentifier();
             $eu = $this->userRepository->findOneBy(array('email' => $user));
             $myId = $eu->getId();
-
+            dump($myId);
             if ($destinatario->getId() === $myId) {
                 throw new \Exception("Error: Você não pode crar conversa com você mesmo");
             }
@@ -91,6 +94,7 @@ class ConversaController extends AbstractController{
 
         if (count($conversa)) {
             throw new \Exception("A Conversa já existe");
+            dump("Já existe");
         }
 
         //caso contrario não ocorra nenhum erro criamos a conversa
@@ -108,6 +112,8 @@ class ConversaController extends AbstractController{
 
         $this->em->getConnection()->beginTransaction();
         try {
+
+            dump("conectado");
             $this->em->persist($newConversa);
             $this->em->persist($remetente);
             $this->em->persist($otherParticipant);
@@ -118,14 +124,15 @@ class ConversaController extends AbstractController{
         } catch (\Exception $e) {
             $this->em->rollback();
             throw $e;
+            dump("Vix");
         }
 
-        return new Response("Deu certo");
+        return $this->redirectToRoute("conversa.listaConversa");
 
         }
 
 
-        return $this->redirectToRoute("listaConversa");
+
     }
 
 

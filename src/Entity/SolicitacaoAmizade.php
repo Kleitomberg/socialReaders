@@ -19,10 +19,10 @@ class SolicitacaoAmizade
     #[ORM\Column]
     private ?bool $situacao = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(nullable: true, type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $data_solicitacao = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(nullable: true, type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $data_confirmacao = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

@@ -11,12 +11,12 @@
 
 
     <div class="text-center  div-form-friends">
-        <form method="post" action="{{path('app_serachamigos')}}" class="d-flex form-friends justfy-content-center"
+        <form name="chat" method="post" action="{{path('app_serachamigos')}}" class="d-flex form-friends justfy-content-center"
             role="search" name="searchfriends">
             <div class="inp-bt d-flex">
                 <input class="form-control search-amigos" name="friends" type="search" placeholder="Buscar Amigos"
                     aria-label="Search">
-                <button type="submit" class="btn btn-primary btn-buscar-friend"><i
+                <button type="submit" name="chat" class="btn btn-primary btn-buscar-friend"><i
                         class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
@@ -113,9 +113,11 @@
                     <div class="col-md-9">
 
                         <p>{{amigo.nome}}</p>
-                        <div>
-                            <button class="btn btn-primary">Mensagem</button>
-                            <input type="hidden" name="mensagem_user_id" id="" value="{{amigo.id}}">
+                        <div class="d-flex">
+                            <form class="abrirchat" action="{{path('conversa.CriarConversa')}}" method="post">
+                            <button type="submit" class="btn btn-primary">Mensagem</button>
+                            <input type="hidden" name="idusuario" id="" value="{{amigo.id}}">
+                        </form>
                             <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
