@@ -23,7 +23,11 @@ class HomeController extends AbstractController{
         $myId = $eu->getId();
 
         $minhasConversas = $conversaRepository->findConversationsByUser($myId);
+
         dump($minhasConversas);
+
+
+
         $postagens = $postagemRepository->findBy(
             array(),
             array('criado_em' => 'DESC')

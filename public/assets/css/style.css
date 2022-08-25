@@ -719,3 +719,14 @@ div.description{
 div.card-favorite{
     background-color: transparent;
 }
+
+
+div.mensagens-div{
+
+    border-radius: 16px;
+    padding: 24px !important;
+    height: 100% !important;
+}
+div.linha-msgs{
+height: 50vh;
+}

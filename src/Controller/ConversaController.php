@@ -19,6 +19,12 @@ use Symfony\Component\HttpFoundation\Response;
      */
 class ConversaController extends AbstractController{
 
+      /**
+     *
+     * @var MensagemRepository
+     */
+    private $mensagemRepository;
+
     /**
      * @var UserRepository
      */
@@ -52,8 +58,11 @@ class ConversaController extends AbstractController{
 
         $minhasConversas = $this->conversaRepository->findConversationsByUser($myId);
 
+
+
         return $this->render("chat/conversa.twig",[
-            "conversas"=>$minhasConversas
+            "conversas"=>$minhasConversas,
+            'mensagens'=>""
         ]);
 
 
