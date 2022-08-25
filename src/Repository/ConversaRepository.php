@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Conversa;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @extends ServiceEntityRepository<Conversa>
@@ -90,6 +91,24 @@ public function findConversationByParticipants(int $otherUserId, int $myId)
 
     return $qb->getQuery()->getResult();
 }
+
+public function findConversationsByUser(int $userId)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->
+            select('otherUser.nome', 'c.id as conversaId', 'lm.conteudo', 'lm.criadoEm')
+            ->innerJoin('c.participantes', 'p', Join::WITH, $qb->expr()->neq('p.usuario', ':usuario'))
+            ->innerJoin('c.participantes', 'me', Join::WITH, $qb->expr()->eq('me.usuario', ':usuario'))
+            ->leftJoin('c.ultimaMensagem', 'lm')
+            ->innerJoin('me.usuario', 'meUser')
+            ->innerJoin('p.usuario', 'otherUser')
+            ->where('meUser.id = :usuario')
+            ->setParameter('usuario', $userId)
+            ->orderBy('lm.criadoEm', 'DESC')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 
 
 }

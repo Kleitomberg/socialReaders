@@ -50,9 +50,12 @@ class ConversaController extends AbstractController{
         $myId = $eu->getId();
 
         $minhasConversas = $this->conversaRepository->findConversationsByUser($myId);
+
         return $this->render("chat/conversa.twig",[
             "conversas"=>$minhasConversas
         ]);
+
+
     }
 
     /**

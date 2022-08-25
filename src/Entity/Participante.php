@@ -18,14 +18,12 @@ class Participante
      * @ORM\ManyToOne(targetEntity="User", inversedBy="participantes")
      */
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'participantes')]
-
     private $usuario;
 
     /**
      * @ORM\ManyToOne(targetEntity="Conversa", inversedBy="participantes")
      */
     #[ORM\ManyToOne(targetEntity: Conversa::class, inversedBy: 'participantes')]
-
     private $conversa;
 
 
