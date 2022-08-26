@@ -1,49 +1,60 @@
 <div id="modal-chats" class='modal-chats  rounded-2 hide'>
 
-	<div class="chaatss">
+    <div class="chaatss">
 
-		<div class="chats-header d-flex">
-			<h1>My chats</h1>
-			<div class="d-flex icones-modal-chats">
-				<i id="btn-minimize" class="fa-solid fa-minus" onclick="minimize()"></i>
-				<i id="btn-maxmize" class="fa-solid fa-compress d-none" onclick="maxmize()"></i>
-				<i id="btn-closer" class="ms-2 fa-solid fa-xmark" onclick="esconder()"></i>
-			</div>
+        <div class="chats-header d-flex">
+            <h1>My chats</h1>
+            <div class="d-flex icones-modal-chats">
+                <i id="btn-minimize" class="fa-solid fa-minus" onclick="minimize()"></i>
+                <i id="btn-maxmize" class="fa-solid fa-compress d-none" onclick="maxmize()"></i>
+                <i id="btn-closer" class="ms-2 fa-solid fa-xmark" onclick="esconder()"></i>
+            </div>
 
 
-		</div>
+        </div>
 
-		<div class="chats-body">
+        <div class="chats-body">
 
             {% for conversa in conversas %}
-			<!-- card-chat-->
+            <!-- card-chat-->
 
-			<div class="card card-chat bg-none ">
-				<div class="card-body bg-none">
-					<div class="info-user-post bg-none">
-						<div class="row row-chats">
-							<div class="col-md-3">
-								<img class="img-fluid profile-post" src="/uploads/imagesprofile/{{conversa.imageprofile}}" alt="logo"></a>
+            <a class="text-decoration-none" href="{{path('mensagens.lista', { id:conversa.conversaId})}}">
+            <div class="card card-chat bg-none ">
 
-						</div>
+                <div class="card-body bg-none">
 
-						<div class="col-md-9">
-							<span class="text-light fw-semibold">
-								 {{conversa.nome}}</span>
-							<p class="message"> {{conversa.conteudo}}</p>
-						</div>
+                    <div class="info-user-post bg-none">
 
-					</div>
+                        <div class="row row-chats">
+                            <div class="col-md-3">
+                                <img class="img-fluid profile-post"
+                                    src="/uploads/imagesprofile/{{conversa.imageprofile}}" alt="logo">
 
-				</div>
+                            </div>
 
-			</div>
-            {%endfor%}
+                            <div class="col-md-9">
+                                <span class="text-light fw-semibold">
+                                    {{conversa.nome}}</span>
+                                <p class="message">
+                                    {{conversa.conteudo}}</p>
+                            </div>
 
-		</div>
-
-
-	</div>
+                        </div>
 
 
-</div></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </a>
+
+                {%endfor%}
+
+
+
+        </div>
+
+
+    </div>
+</div>

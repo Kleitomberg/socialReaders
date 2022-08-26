@@ -50,19 +50,20 @@ class ConversaController extends AbstractController{
     /**
      * @Route("/", name="listaConversa")
      */
-    public function conversaIndex(){
+    public function conversaIndex(Request $request){
 
         $user = $this->getUser()->getUserIdentifier();
         $eu = $this->userRepository->findOneBy(array('email' => $user));
         $myId = $eu->getId();
 
         $minhasConversas = $this->conversaRepository->findConversationsByUser($myId);
+        $cinversaId = $request->get("id");
 
-
-
+        dump($minhasConversas);
         return $this->render("chat/conversa.twig",[
             "conversas"=>$minhasConversas,
-            'mensagens'=>""
+            'mensagens'=>"",
+            'id'=>$cinversaId
         ]);
 
 
@@ -101,9 +102,15 @@ class ConversaController extends AbstractController{
                 $myId
         );
 
+        dump($conversa);
+
         if (count($conversa)) {
+            $converID = $conversa;
+            dump($converID);
+            return $this->redirectToRoute('conversa.listaConversa');
             throw new \Exception("A Conversa já existe");
-            dump("Já existe");
+
+
         }
 
         //caso contrario não ocorra nenhum erro criamos a conversa
@@ -135,8 +142,8 @@ class ConversaController extends AbstractController{
             throw $e;
             dump("Vix");
         }
-
-        return $this->redirectToRoute("conversa.listaConversa");
+        $cinversaId = $request->get("id");
+        return $this->redirectToRoute("conversa.listaConversa",['id'=>$cinversaId]);
 
         }
 

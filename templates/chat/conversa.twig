@@ -1,12 +1,14 @@
 {% extends "base.html.twig" %}
 
+{% block title %} SocialReaders | Chats{% endblock %}
+
 {% block body %}
 
 <div class="container mt-5">
 
 
     <div class="row linha-msgs">
-        <div class="col-md-3">
+        <div class="col-md-3 col-conversas bg-light">
             {% for conversa in conversas %}
             <a class="text-decoration-none mb-3 link_msg" href="{{path('mensagens.lista', { id:conversa.conversaId})}}">
                 <div class="row mb-3 linha_chat_msg {%if conversa.conversaId == id%} active {%endif%} ">
@@ -28,9 +30,16 @@
         </div>
         <div class="col-md-9 bg-light p-3 mensagens-div">
             {%if mensagens %}
+            <div class="so-msg">
             {%for m in mensagens %}
-            <div class="bg-info mb-2 mt-2">
-                {{m.conteudo}}
+
+            <span class="criado_em {% if m.usuario.id == app.user.id %} is_my {%else%} is_not_my {%endif%}">{{m.criadoEm |date('d/m/y h:m', 'America/Sao_paulo')}}</span>
+
+            <div class=" mb-3 mt-3  {% if m.usuario.id == app.user.id %} is_my {%else%} is_not_my {%endif%}">
+
+                <img class="img-fluid profile-post" src="/uploads/imagesprofile/{{m.usuario.imageprofile}}">
+                <span>{{m.usuario}} </span>
+               <p class="p-message"> {{m.conteudo}}</p>
             </div>
             {%endfor%}
 
@@ -40,16 +49,23 @@
             {%endif%}
             {%if id%}
             {%if aconversa %}
-
+        </div>
             {%endif%}
             <form id="form_send_mensagem" name="mensagem-content" action="" method="post">
-                <input name="conteudo" type="text" placeholder="Digite sua Mensagem" required>
+                <input class="content-input" name="conteudo" type="text" placeholder="Digite sua Mensagem" required>
                 <input type="hidden" name="" value="{{id}}">
-                <button class="btn btn-info">Enviar</button>
+                <button class="btn btn-info ms-3 send-btn">Send</button>
             </form>
 
             {%else%}
-            <P>Escolher uma conversa            </P>
+            <div class="no-conversa">
+
+
+            <img class="img-fluid chat_ilustaration" src="/assets/images/09.png" alt="chat_ilustaration">
+
+            <P class="mt-5 mb-0">Escolher uma conversa </P>
+        </div>
+
         {%endif%}
 
 

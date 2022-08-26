@@ -725,10 +725,18 @@ div.mensagens-div{
 
     border-radius: 16px;
     padding: 24px !important;
-    height: 100% !important;
+    height: max-content;
+
+}
+
+div.so-msg{
+    height: 500px;
+    overflow-y: scroll;
+
 }
 div.linha-msgs{
 height: 50vh;
+gap: 20px;
 }
 .linha_chat_msg:hover{
     background-color: #6b5dff;
@@ -739,7 +747,7 @@ height: 50vh;
 .linha_chat_msg{
     width: 300px;
     height: 60px;
-    padding: 8px;
+    padding: 10px;
 
 }
 
@@ -749,3 +757,80 @@ div.row.mb-3.linha_chat_msg.active{
     border-radius: 16px;
 }
 
+div.no-conversa{
+    text-align: center;
+    padding:40px ;
+}
+
+
+img.chat_ilustaration{
+    width: 45vw;
+    margin-bottom: 10px;
+}
+
+div.col-conversas{
+border-radius: 16px;
+padding: 20px;
+}
+
+input.content-input{
+width: 90%;
+border-radius: 8px;
+border: 1px solid #6b5dff;
+padding: 10px;
+
+}
+
+input.content-input:focus{
+    border: 1px solid #6b5dff !important;
+}
+
+button.send-btn{
+    padding: 8px;
+    background-color: #6b5dff;
+    border: 1px solid #6b5dff;
+    color: #f8f8f8;
+}
+
+button.send-btn:hover{
+    background-color: #222037;
+    color: #adbae0;
+}
+
+form#form_send_mensagem{
+height: max-content;
+justify-content: center;
+align-items: center;
+}
+
+p.p-message{
+padding-left: 50px;
+}
+
+div.is_my{
+    background-color: #6b5dff ;
+    width: 350px;
+    padding: 10px;
+    border-radius: 12px;
+    margin-left: auto;
+    margin-right: 45px;
+}
+
+div.is_not_my{
+
+    background-color: #272635 ;
+    width: 350px;
+    padding: 10px;
+    color: #c9d1e9;
+    border-radius: 12px;
+
+}
+
+span.is_my{
+    margin-left: auto;
+    display: table;
+    margin-right: 45px;
+}
+span.criado_em{
+    font-style: italic;
+}
