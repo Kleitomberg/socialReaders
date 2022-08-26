@@ -8,7 +8,7 @@
 
 
     <div class="row linha-msgs">
-        <div class="col-md-3 col-conversas bg-light">
+        <div class="col-md-auto col-conversas bg-light">
             {% for conversa in conversas %}
             <a class="text-decoration-none mb-3 link_msg" href="{{path('mensagens.lista', { id:conversa.conversaId})}}">
                 <div class="row mb-3 linha_chat_msg {%if conversa.conversaId == id%} active {%endif%} ">
@@ -38,7 +38,7 @@
             <div class=" mb-3 mt-3  {% if m.usuario.id == app.user.id %} is_my {%else%} is_not_my {%endif%}">
 
                 <img class="img-fluid profile-post" src="/uploads/imagesprofile/{{m.usuario.imageprofile}}">
-                <span>{{m.usuario}} </span>
+                <span> <STRong>{{m.usuario}} </STRong></span>
                <p class="p-message"> {{m.conteudo}}</p>
             </div>
             {%endfor%}
@@ -51,11 +51,19 @@
             {%if aconversa %}
         </div>
             {%endif%}
+            <div class="form-msg">
             <form id="form_send_mensagem" name="mensagem-content" action="" method="post">
+                <div class="d-flex align-items-center">
+                <div class="div-inputs-msg">
                 <input class="content-input" name="conteudo" type="text" placeholder="Digite sua Mensagem" required>
                 <input type="hidden" name="" value="{{id}}">
+            </div>
+                <div style="width: max-content ;">
                 <button class="btn btn-info ms-3 send-btn">Send</button>
+            </div>
+        </div>
             </form>
+        </div>
 
             {%else%}
             <div class="no-conversa">

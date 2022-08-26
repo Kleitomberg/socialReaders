@@ -732,6 +732,7 @@ div.mensagens-div{
 div.so-msg{
     height: 500px;
     overflow-y: scroll;
+    overflow-x: hidden;
 
 }
 div.linha-msgs{
@@ -745,16 +746,21 @@ gap: 20px;
 }
 
 .linha_chat_msg{
-    width: 300px;
+    width: auto;
     height: 60px;
     padding: 10px;
 
+}
+div.div-inputs-msg{
+    width: 90%;
 }
 
 div.row.mb-3.linha_chat_msg.active{
     background-color: #6b5dff;
     color: #f8f8f8;
     border-radius: 16px;
+    width: auto;
+    padding: 6px;
 }
 
 div.no-conversa{
@@ -774,7 +780,7 @@ padding: 20px;
 }
 
 input.content-input{
-width: 90%;
+width: 100%;
 border-radius: 8px;
 border: 1px solid #6b5dff;
 padding: 10px;
@@ -803,9 +809,6 @@ justify-content: center;
 align-items: center;
 }
 
-p.p-message{
-padding-left: 50px;
-}
 
 div.is_my{
     background-color: #6b5dff ;
@@ -833,4 +836,18 @@ span.is_my{
 }
 span.criado_em{
     font-style: italic;
+}
+
+div.mensagens-div{
+    width: 73%;
+}
+div.col-conversas{
+    width: 25%;
+}
+
+
+p.p-message {
+    padding-left: 54px;
+    margin-top: -16px !important;
+    color: white;
 }

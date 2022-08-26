@@ -7,6 +7,7 @@
 
     img.profile {
         width: 40px;
+        height: 40px;
         border-radius: 50%;
     }
 
@@ -68,5 +69,53 @@ img.thumb-book{
 .book-title{
     text-align: center;
 }
+div.mensagens-div{
+    width: 100%;
+}
 
+
+div.linha-msgs {
+    padding: 20px;
+}
+
+form#form_send_mensagem{
+    margin-top: 18px !important;
+}
+
+div.col-conversas{
+    width: 100%;
+}
+
+div.is_not_my, div.is_my{
+    width: 240px;
+}
+p.p-message {
+    padding-left: 54px;
+    margin-top: -16px !important;
+}
+
+}
+
+
+/*Tablet*/
+
+@media (min-width: 700px) and (max-width:1024px){
+
+    div.mensagens-div{
+        width: 57%;
+    }
+    div.col-conversas{
+        width: 40%;
+    }
+
+    input.content-input{
+        width: 100%;
+    }
+    form#form_send_mensagem{
+        margin-top: 18px !important;
+    }
+
+    div.div-inputs-msg{
+        width: 80%;
+    }
 }
