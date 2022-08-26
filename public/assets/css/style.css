@@ -761,6 +761,8 @@ div.row.mb-3.linha_chat_msg.active{
     border-radius: 16px;
     width: auto;
     padding: 6px;
+    height: 10vh;
+    align-items: center;
 }
 
 div.no-conversa{
