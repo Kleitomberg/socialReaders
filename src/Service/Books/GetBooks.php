@@ -1,7 +1,6 @@
 <?php
-/*
 namespace App\Service\Books;
-use App\Dto\Book;
+use App\Dto\Book\Book;
 use App\Exception\HttpRequestException;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -46,4 +45,3 @@ class GetBooks{
     }
 
 }
-*/
