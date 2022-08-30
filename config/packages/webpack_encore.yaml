@@ -22,7 +22,7 @@ webpack_encore:
 
     # Throw an exception if the entrypoints.json file is missing or an entry is missing from the data
     # strict_mode: false
-
+    strict_mode: false
     # If you have multiple builds:
     # builds:
         # pass "frontend" as the 3rg arg to the Twig functions
