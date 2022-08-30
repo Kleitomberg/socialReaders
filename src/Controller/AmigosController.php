@@ -186,13 +186,10 @@ if($solicitacoes){
 
 
             $data_solicitacao =date('y-m-d h:i:s');
-           // dump($data_solicitacao);
             $data_confirmacao =date('d/m/Y');
             $situacao = 0;
             $solicitante = $_POST["meuid"];
-            //dump($solicitante);
             $solicitado =$_POST["userid"];
-            //dump($solicitado);
             $friend = $userRepository->findOneBy(array(
                 'id' => $solicitado
                 )
@@ -210,7 +207,6 @@ if($solicitacoes){
             $amizade->setSituacao($situacao);
             $amizade->setIdSolicitante($eu);
             $amizade->setIdSolicitado($friend);
-           // dump($data_solicitacao);
             //$amizade->setDataSolicitacao($data_solicitacao);
             //$amizade->setDataSolicitacao($newformat, bool $a= false);
 

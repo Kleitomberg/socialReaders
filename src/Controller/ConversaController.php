@@ -59,7 +59,7 @@ class ConversaController extends AbstractController{
         $minhasConversas = $this->conversaRepository->findConversationsByUser($myId);
         $cinversaId = $request->get("id");
 
-        dump($minhasConversas);
+
         return $this->render("chat/conversa.twig",[
             "conversas"=>$minhasConversas,
             'mensagens'=>"",
@@ -79,19 +79,18 @@ class ConversaController extends AbstractController{
             $outrosParticipantesId=$_POST['idusuario'];
 
             $destinatario = $this->userRepository->find($outrosParticipantesId);
-            dump($destinatario);
-            //print_r($destinatario); die;
+
             //verifica se exite um destinatario
             if (is_null($destinatario)) {
                 throw new \Exception("Erro: Usuario não encontrado");
-                dump("VAZIO");
+
             }
 
             //verifica se o destinatario é igual ao remetente
             $user = $this->getUser()->getUserIdentifier();
             $eu = $this->userRepository->findOneBy(array('email' => $user));
             $myId = $eu->getId();
-            dump($myId);
+
             if ($destinatario->getId() === $myId) {
                 throw new \Exception("Error: Você não pode crar conversa com você mesmo");
             }
@@ -102,11 +101,11 @@ class ConversaController extends AbstractController{
                 $myId
         );
 
-        dump($conversa);
+
 
         if (count($conversa)) {
             $converID = $conversa;
-            dump($converID);
+
             return $this->redirectToRoute('conversa.listaConversa');
             throw new \Exception("A Conversa já existe");
 
@@ -129,7 +128,7 @@ class ConversaController extends AbstractController{
         $this->em->getConnection()->beginTransaction();
         try {
 
-            dump("conectado");
+
             $this->em->persist($newConversa);
             $this->em->persist($remetente);
             $this->em->persist($otherParticipant);
@@ -140,7 +139,7 @@ class ConversaController extends AbstractController{
         } catch (\Exception $e) {
             $this->em->rollback();
             throw $e;
-            dump("Vix");
+
         }
         $cinversaId = $request->get("id");
         return $this->redirectToRoute("conversa.listaConversa",['id'=>$cinversaId]);

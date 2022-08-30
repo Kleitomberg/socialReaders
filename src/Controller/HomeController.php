@@ -24,7 +24,7 @@ class HomeController extends AbstractController{
 
         $minhasConversas = $conversaRepository->findConversationsByUser($myId);
 
-        dump($minhasConversas);
+
 
 
 

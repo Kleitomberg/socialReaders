@@ -97,14 +97,12 @@ class UserController extends AbstractController{
 
                     $ext = explode('.', $foto);// get the extension of the file
                     $tamanho = count($ext);
-                    dump($ext[$tamanho-1]);
                     $newname = $username.$ext[0]."profile.".$ext[$tamanho-1];
 
                     $g =  $this->getParameter('images_directory');
                     $target = $g.$newname;
 
-                    dump($g);
-                    dump($target);
+
                     move_uploaded_file( $_FILES['imageprofile']['tmp_name'], $target);
                     //move_uploaded_file($foto, $target);
 
@@ -123,7 +121,6 @@ class UserController extends AbstractController{
 
 
 
-            dump($foto);
 
 
             $myuser->setNome($username);

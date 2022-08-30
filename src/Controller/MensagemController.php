@@ -63,7 +63,6 @@ class MensagemController extends AbstractController{
             $conversa->getId()
         );
 
-        dump($mymensagens);
 
         $user = $this->getUser()->getUserIdentifier();
         $eu = $this->userRepository->findOneBy(array('email' => $user));
@@ -90,7 +89,6 @@ class MensagemController extends AbstractController{
 
 
 
-        dump($aconnversa);
         return $this->render("chat/conversa.twig",[
             'mensagens'=>$mymensagens,
             "conversas"=>$minhasConversas,
@@ -115,7 +113,6 @@ class MensagemController extends AbstractController{
             $myId = $eu->getId();
 
          $content = $_POST['conteudo'];
-            dump($content);
         $mensagem = new Mensagem();
         $mensagem->setConteudo($content);
         $mensagem->setUsuario($this->userRepository->findOneBy(['id' => $myId]));

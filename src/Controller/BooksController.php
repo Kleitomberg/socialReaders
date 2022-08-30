@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Dto\Book\Book;
+use App\Service\Dto\Book\Book;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,7 +41,7 @@ class BooksController  extends AbstractController{
 
           if(isset($_POST['books']) || isset($_POST['searchbooks'])){
             $titulo =$_POST['books'];
-            //dump($titulo);
+
             $getBookResponse = $getBooks($titulo);
             $books = $getBookResponse->getBook();
 
@@ -71,7 +71,7 @@ class BooksController  extends AbstractController{
 
         $jsonresponse = file_get_contents($url);
         $data = json_decode($jsonresponse);
-        //var_dump($data->title);
+
 
         //recuperando dados da api
 
@@ -108,7 +108,7 @@ class BooksController  extends AbstractController{
             $livro->setId($id);
         }
 
-        //var_dump($livro);
+
 
         return $this->render("booksdetails.html.twig",[
             'livro'=>$livro,
@@ -126,16 +126,16 @@ class BooksController  extends AbstractController{
         $myuser = $userRepository->findOneBy(array('email' => $useronline));
 
         $myfavs = $myuser->getFavoritesBooks();
-      //  dump($myfavs);
+
 
         $livroID = array();
 
         if (in_array($id, $myfavs)) {
-            //dump("Já existe!");
+
             $key = array_search($id, $myfavs);
-            //dump($key);
+
             unset($myfavs[$key]);
-            //$myfavs = $myfavs;
+
         }else{
             array_push($myfavs, $id);
         }
