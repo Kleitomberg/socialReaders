@@ -41,6 +41,8 @@ security:
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/cadastro, roles: PUBLIC_ACCESS }
         - { path: ^/criarUser, roles: PUBLIC_ACCESS }
+        - { path: ^/createPost, roles: PUBLIC_ACCESS }
+
         - { path: ^/user/crud, roles: PUBLIC_ACCESS }
         - { path: ^/, roles: [IS_AUTHENTICATED_FULLY, ROLE_USER]}
 
