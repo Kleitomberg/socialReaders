@@ -1,7 +1,8 @@
 <?php
 
 /*
-namespace App\Dto\Book;
+namespace App\Service\Dto\Book;
+
 
 class GetListaBooksResponse{
 
