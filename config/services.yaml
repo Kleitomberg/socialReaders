@@ -23,6 +23,8 @@ services:
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
+    App\Service\Books/GetBooks:
+
     App\Service\ImageUpload:
         arguments:
             $targetDirectory: '%images_directory%'
