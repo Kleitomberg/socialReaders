@@ -1,4 +1,9 @@
 {
+    "engines": {
+        "node": "10.13.0",
+        "yarn": "1.6.0",
+        "npm": "6.4.1"
+      },
     "devDependencies": {
         "@hotwired/stimulus": "^3.0.0",
         "@symfony/stimulus-bridge": "^3.2.0",
