@@ -1,0 +1,121 @@
+/*Smartphones*/
+
+@media only screen and (max-width: 600px) {
+    img.logo {
+        width: 40vw;
+    }
+
+    img.profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    input.form-control {
+
+        background-color: #fff !important;
+    }
+
+    form.postagem h1 {
+        font-size: 20px;
+        margin-bottom: 15px !important;
+        margin-top: 5px !important;
+    }
+
+    .modal-chats {
+        z-index: 1;
+        min-width: 300px;
+        position: absolute;
+        bottom: 15px;
+        border-radius: 8px;
+        right: 0px;
+        background-color: #6b5dff;
+
+    }
+
+
+
+    .modal-chats {
+
+        max-width: max-content;
+    }
+
+    .c2 {
+        height: 100vh;
+        justify-content: center;
+    }
+
+
+p.description-book{
+    text-align: center;
+}
+div.description{
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+
+    padding-left: 15px !important;
+}
+img.thumb-book{
+    width: 65vw;
+    padding: 20px;
+
+}
+
+.book-title{
+    text-align: center;
+}
+div.mensagens-div{
+    width: 100%;
+}
+
+
+div.linha-msgs {
+    padding: 20px;
+}
+
+form#form_send_mensagem{
+    margin-top: 18px !important;
+}
+
+div.col-conversas{
+    width: 100%;
+}
+
+div.is_not_my, div.is_my{
+    width: 240px;
+}
+p.p-message {
+    padding-left: 54px;
+    margin-top: -16px !important;
+}
+
+}
+
+
+/*Tablet*/
+
+@media (min-width: 700px) and (max-width:1024px){
+
+    div.mensagens-div{
+        width: 57%;
+    }
+    div.col-conversas{
+        width: 40%;
+    }
+
+    input.content-input{
+        width: 100%;
+    }
+    form#form_send_mensagem{
+        margin-top: 18px !important;
+    }
+
+    div.div-inputs-msg{
+        width: 80%;
+    }
+}
