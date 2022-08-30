@@ -2,7 +2,7 @@
     "engines": {
         "node": "16.16.0",
         "yarn": "1.22.19",
-        "npm": "8.18.1"
+        "npm": "8.11.0"
       },
     "devDependencies": {
         "@hotwired/stimulus": "^3.0.0",
