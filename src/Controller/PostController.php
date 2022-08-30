@@ -15,7 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class PostController extends AbstractController{
 
 /**
- * @Route("/createPost")
+ * @Route("/createPost", name="criarpost")
  */
 
     public function createPost(Request $request, PostRepository $postagemRepository, UserRepository $usuarioRepository){
