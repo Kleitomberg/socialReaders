@@ -28,6 +28,12 @@ services:
     App\Service\:
         resource: '../src/Service'
 
+    App\Service\Dto:
+        resource: '../src/Service/Dto'
+
+    App\Service\Books:
+        resource: '../src/Service/Books'
+
 
     App\Service\ImageUpload:
         arguments:
