@@ -1,12 +1,12 @@
 <?php
 namespace App\Service\Books;
-use App\Dto\Book\Book;
+use App\Service\Dto\Book\Book;
 use App\Exception\HttpRequestException;
 use Symfony\Component\HttpFoundation\Response;
 
 
 
-use App\Dto\Book\GetBookResponse;
+use App\Service\Dto\Book\GetBookResponse;
 
 
 class GetBooks{
