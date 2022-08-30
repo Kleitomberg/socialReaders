@@ -20,9 +20,9 @@ class PostController extends AbstractController{
 
     public function createPost(Request $request, PostRepository $postagemRepository, UserRepository $usuarioRepository){
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        if ( isset( $_POST["postar"] )) {
+
+        if ( isset( $_POST["conteudo"] )) {
 
             $user = $this->getUser();
             $conteudo = $_POST["conteudo"];
@@ -41,7 +41,7 @@ class PostController extends AbstractController{
         $postagens = $postagemRepository->findAll();
 
         #return $this->render("index.html.twig", [ "postagens"=>$postagens]);
-        return $this->redirectToRoute("home", [ "postagens"=>$postagens], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute("home", [ "postagens"=>$postagens]);
         #return new Response(' Livro Salvo com id '.$livro->getId());
 
     }
