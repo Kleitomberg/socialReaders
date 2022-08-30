@@ -29,7 +29,7 @@ services:
         resource: '../src/Service'
 
     App\Service\Dto\:
-        resource: '../src/Service/Dto/'
+        resource: '../src/Service/Dto'
 
     App\Service\Books\:
         resource: '../src/Service/Books'
