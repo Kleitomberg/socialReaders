@@ -238,7 +238,7 @@ button.postar:hover {
 
 body#corpo1 {
 
-    background-image: url("../images/bg.png");
+    background-image: url("../../public/assets/images/bg.png");
     background-size: cover;
     padding: 0 !important;
     margin: 0 !important;
@@ -248,7 +248,7 @@ body#corpo1 {
 
 body#corpo2 {
 
-    background-image: url("../images/bg2.png");
+    background-image: url("../../public/assets/images/bg2.png");
     background-size: cover;
     padding: 0 !important;
     margin: 0 !important;
