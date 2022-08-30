@@ -27,6 +27,10 @@ services:
 
     App\Service\Dto/Book/Book:
 
+    App\Service\:
+        resource: '../src/Service'
+
+
     App\Service\ImageUpload:
         arguments:
             $targetDirectory: '%images_directory%'
