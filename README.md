@@ -18,9 +18,13 @@ Uma Rede social para amanates da leitura, a ideia é que os usuarios possam post
 
 ![App Screenshot](https://github.com/Kleitomberg/socialReaders/blob/main/public/assets/images/home-chat.png)
 
+![App Screenshot](https://github.com/Kleitomberg/socialReaders/blob/main/public/assets/images/chats.png)
+
+
 ![App Screenshot](https://github.com/Kleitomberg/socialReaders/blob/main/public/assets/images/profile-page.png)
 
 ![App Screenshot](https://github.com/Kleitomberg/socialReaders/blob/main/public/assets/images/Captura%20de%20tela%202022-08-04%20092224.png)
+
 
 
 
