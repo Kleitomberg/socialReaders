@@ -10,6 +10,7 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "postinstall": "encore production --progress",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
